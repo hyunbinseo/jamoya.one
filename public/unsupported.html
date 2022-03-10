@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>호환되지 않는 웹 브라우저</title>
+  <meta name="robots" content="noindex">
+</head>
+
+<body onload="openInEdge()">
+  <script>
+    function openInEdge() {
+      if (/MSIE|Trident/.test(window.navigator.userAgent)) {
+        if (window.confirm("마이크로소프트 엣지에서 페이지를 여시겠습니까?")) {
+          window.location.href = 'microsoft-edge:' + window.location.origin;
+        }
+      } else {
+        window.location.href = window.location.origin;
+      }
+    }
+  </script>
+  <h1>인터넷 익스플로러는 지원되지 않습니다.</h1>
+  <p>아래 웹 브라우저에 최적화되어 있습니다. (가나다순)</p>
+  <ul>
+    <li><a href="https://www.google.com/chrome/">구글 크롬</a></li>
+    <li><a href="https://whale.naver.com/">네이버 웨일</a></li>
+    <li><a href="https://www.microsoft.com/edge">마이크로소프트 엣지</a></li>
+    <li>이외 크로미움 기반 웹 브라우저</li>
+  </ul>
+  <hr>
+  <ul>
+    <li>이 페이지를 마이크로소프트 엣지의 Internet Explorer 모드로 연 경우 정상 작동하지 않습니다.</li>
+  </ul>
+</body>
+
+</html>
