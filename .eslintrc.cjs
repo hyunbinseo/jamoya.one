@@ -12,6 +12,12 @@ module.exports = {
     'airbnb-base',
     'airbnb-typescript/base',
   ],
+  rules: {
+    'linebreak-style': 'off',
+    'import/no-extraneous-dependencies': ['error', {
+      devDependencies: true,
+    }],
+  },
   overrides: [
     {
       files: ['*.svelte'],
