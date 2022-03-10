@@ -7,6 +7,10 @@ export const downloadFile = (file: File) => {
   document.body.removeChild(anchor);
 };
 
+export const handleDragOver = (e: DragEvent) => {
+  e.dataTransfer.dropEffect = 'copy';
+};
+
 export const handleDrop = ({ dataTransfer: { items, files } }: DragEvent) => {
   if (items) {
     // Use DataTransferItemList interface to access the file(s)

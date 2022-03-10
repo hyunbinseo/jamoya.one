@@ -1,12 +1,12 @@
 <script lang="ts">
   import "./lib/style.css";
-  import { handleDrop } from "./lib/functions";
+  import { handleDragOver, handleDrop } from "./lib/functions";
 </script>
 
 <div
   class="fixed inset-0 flex select-none flex-col bg-white pt-16 pb-12"
-  on:drop|preventDefault={handleDrop}
-  on:dragover|preventDefault
+  on:dragover|preventDefault|stopPropagation={handleDragOver}
+  on:drop|preventDefault|stopPropagation={handleDrop}
 >
   <main
     class="mx-auto flex w-full max-w-7xl flex-grow flex-col justify-center px-4 sm:px-6 lg:px-8"
