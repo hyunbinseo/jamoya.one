@@ -1,4 +1,5 @@
 <script lang="ts">
+  import "./lib/style.css";
   import { handleDrop } from "./lib/functions";
 </script>
 
