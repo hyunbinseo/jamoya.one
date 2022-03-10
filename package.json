@@ -21,6 +21,8 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-svelte3": "^3.4.1",
     "postcss": "^8.4.8",
+    "prettier": "^2.5.1",
+    "prettier-plugin-tailwindcss": "^0.1.8",
     "svelte": "^3.44.0",
     "svelte-check": "^2.2.7",
     "svelte-preprocess": "^4.9.8",
