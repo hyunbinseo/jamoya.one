@@ -21,6 +21,9 @@
     } else {
       downloadFiles(files);
     }
+    // on:dragleave might not be called, even if files are downloaded
+    // e.g. Chromium permission - Site wants to: Download multiple files
+    isDraggedOver = false;
   };
 
   let fileInput: HTMLInputElement;
