@@ -1,6 +1,6 @@
 <script lang="ts">
   import "./lib/style.css";
-  import { downloadFile, handleDrop } from "./lib/functions";
+  import { downloadFiles, downloadItems } from "./lib/functions";
 
   const { VITE_GITHUB_URL } = import.meta.env;
 
@@ -15,14 +15,23 @@
     isDraggedOver = false;
   };
 
+  const handleDrop = ({ dataTransfer: { items, files } }: DragEvent) => {
+    if (items) {
+      downloadItems(items);
+    } else {
+      downloadFiles(files);
+    }
+    // on:dragleave might not be called, even if files are downloaded
+    // e.g. Chromium permission - Site wants to: Download multiple files
+    isDraggedOver = false;
+  };
+
   let fileInput: HTMLInputElement;
 
   const handleFileChange = (e: Event) => {
     const input = e.target as HTMLInputElement;
     const { files } = input;
-    for (let i = 0; i < files.length; i += 1) {
-      downloadFile(files[i]);
-    }
+    downloadFiles(files);
     input.value = "";
   };
 </script>
@@ -78,14 +87,14 @@
         href="{VITE_GITHUB_URL}#readme"
         class="hover:text-gray-600 dark:hover:text-gray-300"
       >
-        프로젝트 소개
+        도구 소개
       </a>
       <span class="inline-block border-l border-gray-300" aria-hidden="true" />
       <a
         href="{VITE_GITHUB_URL}/discussions"
         class="hover:text-gray-600 dark:hover:text-gray-300"
       >
-        문의 및 제안
+        문의 제안
       </a>
       <span class="inline-block border-l border-gray-300" aria-hidden="true" />
       <a
