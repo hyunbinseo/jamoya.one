@@ -1,6 +1,6 @@
 <script lang="ts">
   import "./lib/style.css";
-  import { downloadFile, handleDrop } from "./lib/functions";
+  import { downloadFiles, downloadItems } from "./lib/functions";
 
   const { VITE_GITHUB_URL } = import.meta.env;
 
@@ -15,14 +15,20 @@
     isDraggedOver = false;
   };
 
+  const handleDrop = ({ dataTransfer: { items, files } }: DragEvent) => {
+    if (items) {
+      downloadItems(items);
+    } else {
+      downloadFiles(files);
+    }
+  };
+
   let fileInput: HTMLInputElement;
 
   const handleFileChange = (e: Event) => {
     const input = e.target as HTMLInputElement;
     const { files } = input;
-    for (let i = 0; i < files.length; i += 1) {
-      downloadFile(files[i]);
-    }
+    downloadFiles(files);
     input.value = "";
   };
 </script>
