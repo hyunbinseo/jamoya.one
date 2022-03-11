@@ -2,6 +2,8 @@
   import "./lib/style.css";
   import { downloadFile, handleDrop } from "./lib/functions";
 
+  const { VITE_GITHUB_URL } = import.meta.env;
+
   let isDraggedOver = false;
 
   const handleDragOver = (e: DragEvent) => {
@@ -82,9 +84,7 @@
         <span class="inline-block border-l border-gray-300" aria-hidden="true" />
        -->
       <a
-        target="_blank"
-        rel="noopener"
-        href="https://github.com/hyunbinseo/mac-filename-kr"
+        href={VITE_GITHUB_URL}
         class="hover:text-gray-600 dark:hover:text-gray-300"
       >
         소스코드
