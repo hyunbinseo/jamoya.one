@@ -26,7 +26,7 @@
 </script>
 
 <div
-  class="pointer-events-auto fixed inset-0 flex select-none flex-col bg-white pt-16 pb-12 transition-colors"
+  class="pointer-events-auto fixed inset-0 flex select-none flex-col bg-white pt-16 pb-12 transition-colors dark:bg-slate-800"
   class:bg-gray-200={isDraggedOver}
   on:dragover|preventDefault|stopPropagation={handleDragOver}
   on:dragleave|preventDefault|stopPropagation={handleDragLeave}
@@ -37,11 +37,11 @@
   >
     <div class="text-center">
       <h1
-        class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl"
+        class="text-4xl font-extrabold tracking-tight text-gray-800 dark:text-gray-100 sm:text-5xl"
       >
         자소 분리 해결
       </h1>
-      <p class="mt-4 text-base text-gray-500">
+      <p class="mt-4 text-base text-gray-500 dark:text-gray-400">
         {#if !isDraggedOver}
           <input
             class="hidden"
@@ -52,7 +52,7 @@
           />
           <button
             type="button"
-            class="text-indigo-600 hover:text-indigo-500"
+            class="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
             on:click={() => fileInput?.click()}
           >
             파일을 선택하거나
@@ -68,13 +68,15 @@
     class="mx-auto w-full max-w-7xl flex-shrink-0 px-4 sm:px-6 lg:px-8"
     class:invisible={isDraggedOver}
   >
-    <nav class="flex justify-center space-x-4">
+    <nav
+      class="flex justify-center space-x-4 text-sm text-gray-500 dark:text-gray-400"
+    >
       <!--       
-        <a href="#" class="text-sm text-gray-500 hover:text-gray-600">
+        <a href="#" class="hover:text-gray-600 dark:hover:text-gray-300">
           문자열 수정
         </a>
         <span class="inline-block border-l border-gray-300" aria-hidden="true" />
-        <a href="#" class="text-sm text-gray-500 hover:text-gray-600">
+        <a href="#" class="hover:text-gray-600 dark:hover:text-gray-300">
           작동 원리
         </a>
         <span class="inline-block border-l border-gray-300" aria-hidden="true" />
@@ -83,7 +85,7 @@
         target="_blank"
         rel="noopener"
         href="https://github.com/hyunbinseo/mac-filename-kr"
-        class="text-sm text-gray-500 hover:text-gray-600"
+        class="hover:text-gray-600 dark:hover:text-gray-300"
       >
         소스코드
       </a>
