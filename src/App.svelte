@@ -73,21 +73,25 @@
     <nav
       class="flex justify-center space-x-4 text-sm text-gray-500 dark:text-gray-400"
     >
-      <!--       
-        <a href="#" class="hover:text-gray-600 dark:hover:text-gray-300">
-          문자열 수정
-        </a>
-        <span class="inline-block border-l border-gray-300" aria-hidden="true" />
-        <a href="#" class="hover:text-gray-600 dark:hover:text-gray-300">
-          작동 원리
-        </a>
-        <span class="inline-block border-l border-gray-300" aria-hidden="true" />
-       -->
       <a
-        href={VITE_GITHUB_URL}
+        href="{VITE_GITHUB_URL}#readme"
         class="hover:text-gray-600 dark:hover:text-gray-300"
       >
-        소스코드
+        프로젝트 소개
+      </a>
+      <span class="inline-block border-l border-gray-300" aria-hidden="true" />
+      <a
+        href="{VITE_GITHUB_URL}/discussions"
+        class="hover:text-gray-600 dark:hover:text-gray-300"
+      >
+        문의 및 제안
+      </a>
+      <span class="inline-block border-l border-gray-300" aria-hidden="true" />
+      <a
+        href="{VITE_GITHUB_URL}/issues"
+        class="hover:text-gray-600 dark:hover:text-gray-300"
+      >
+        오류 제보
       </a>
     </nav>
   </footer>
