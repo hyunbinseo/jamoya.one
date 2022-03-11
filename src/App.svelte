@@ -1,11 +1,24 @@
 <script lang="ts">
   import "./lib/style.css";
-  import { handleDragOver, handleDrop } from "./lib/functions";
+  import { handleDrop } from "./lib/functions";
+
+  let isDraggedOver = false;
+
+  const handleDragOver = (e: DragEvent) => {
+    isDraggedOver = true;
+    e.dataTransfer.dropEffect = "copy";
+  };
+
+  const handleDragLeave = () => {
+    isDraggedOver = false;
+  };
 </script>
 
 <div
-  class="fixed inset-0 flex select-none flex-col bg-white pt-16 pb-12"
+  class="pointer-events-auto fixed inset-0 flex select-none flex-col bg-white pt-16 pb-12 transition-colors"
+  class:bg-gray-200={isDraggedOver}
   on:dragover|preventDefault|stopPropagation={handleDragOver}
+  on:dragleave|preventDefault|stopPropagation={handleDragLeave}
   on:drop|preventDefault|stopPropagation={handleDrop}
 >
   <main
@@ -18,16 +31,24 @@
         자소 분리 해결
       </h1>
       <p class="mt-4 text-base text-gray-500">
-        <!--         
-          <button type="button" class="font-bold hover:text-indigo-600">
+        {#if !isDraggedOver}
+          <button
+            type="button"
+            class="font-bold text-indigo-600 hover:text-indigo-500"
+          >
             파일을 선택하거나
           </button>
-        -->
-        파일을 이곳에 끌어다 놓으세요.
+          파일을 이곳에 끌어다 놓으세요.
+        {:else}
+          파일을 내려 놓으세요.
+        {/if}
       </p>
     </div>
   </main>
-  <footer class="mx-auto w-full max-w-7xl flex-shrink-0 px-4 sm:px-6 lg:px-8">
+  <footer
+    class="mx-auto w-full max-w-7xl flex-shrink-0 px-4 sm:px-6 lg:px-8"
+    class:invisible={isDraggedOver}
+  >
     <nav class="flex justify-center space-x-4">
       <!--       
         <a href="#" class="text-sm font-medium text-gray-500 hover:text-gray-600">
