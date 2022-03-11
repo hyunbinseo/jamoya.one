@@ -52,7 +52,7 @@
           />
           <button
             type="button"
-            class="font-bold text-indigo-600 hover:text-indigo-500"
+            class="text-indigo-600 hover:text-indigo-500"
             on:click={() => fileInput?.click()}
           >
             파일을 선택하거나
@@ -70,11 +70,11 @@
   >
     <nav class="flex justify-center space-x-4">
       <!--       
-        <a href="#" class="text-sm font-medium text-gray-500 hover:text-gray-600">
+        <a href="#" class="text-sm text-gray-500 hover:text-gray-600">
           문자열 수정
         </a>
         <span class="inline-block border-l border-gray-300" aria-hidden="true" />
-        <a href="#" class="text-sm font-medium text-gray-500 hover:text-gray-600">
+        <a href="#" class="text-sm text-gray-500 hover:text-gray-600">
           작동 원리
         </a>
         <span class="inline-block border-l border-gray-300" aria-hidden="true" />
@@ -83,7 +83,7 @@
         target="_blank"
         rel="noopener"
         href="https://github.com/hyunbinseo/mac-filename-kr"
-        class="text-sm font-medium text-gray-500 hover:text-gray-600"
+        class="text-sm text-gray-500 hover:text-gray-600"
       >
         소스코드
       </a>
