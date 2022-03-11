@@ -78,14 +78,14 @@
         href="{VITE_GITHUB_URL}#readme"
         class="hover:text-gray-600 dark:hover:text-gray-300"
       >
-        프로젝트 소개
+        도구 소개
       </a>
       <span class="inline-block border-l border-gray-300" aria-hidden="true" />
       <a
         href="{VITE_GITHUB_URL}/discussions"
         class="hover:text-gray-600 dark:hover:text-gray-300"
       >
-        문의 및 제안
+        문의 제안
       </a>
       <span class="inline-block border-l border-gray-300" aria-hidden="true" />
       <a
