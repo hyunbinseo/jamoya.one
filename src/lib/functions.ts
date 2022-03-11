@@ -1,10 +1,12 @@
 export const downloadFile = (file: File) => {
   const anchor = document.createElement('a');
-  anchor.href = URL.createObjectURL(new Blob([file]));
+  const objectUrl = URL.createObjectURL(new Blob([file]));
+  anchor.href = objectUrl;
   anchor.download = file.name.normalize('NFC');
   document.body.appendChild(anchor);
   anchor.click();
   document.body.removeChild(anchor);
+  URL.revokeObjectURL(objectUrl);
 };
 
 export const handleDrop = ({ dataTransfer: { items, files } }: DragEvent) => {
