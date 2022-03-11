@@ -1,6 +1,6 @@
 <script lang="ts">
   import "./lib/style.css";
-  import { handleDrop } from "./lib/functions";
+  import { downloadFile, handleDrop } from "./lib/functions";
 
   let isDraggedOver = false;
 
@@ -11,6 +11,17 @@
 
   const handleDragLeave = () => {
     isDraggedOver = false;
+  };
+
+  let fileInput: HTMLInputElement;
+
+  const handleFileChange = (e: Event) => {
+    const input = e.target as HTMLInputElement;
+    const { files } = input;
+    for (let i = 0; i < files.length; i += 1) {
+      downloadFile(files[i]);
+    }
+    input.value = "";
   };
 </script>
 
@@ -32,9 +43,17 @@
       </h1>
       <p class="mt-4 text-base text-gray-500">
         {#if !isDraggedOver}
+          <input
+            class="hidden"
+            type="file"
+            multiple
+            bind:this={fileInput}
+            on:change={handleFileChange}
+          />
           <button
             type="button"
             class="font-bold text-indigo-600 hover:text-indigo-500"
+            on:click={() => fileInput?.click()}
           >
             파일을 선택하거나
           </button>
