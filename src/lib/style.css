@@ -1,3 +1,28 @@
+@import url("https://cdn.hyunbin.page/spoqa-han-sans-neo/subset.css");
+
+/* 
+  font-family: "Spoqa Han Sans Neo";
+  font-weight: 100; .font-thin
+  font-weight: 300; .font-light
+  font-weight: 400; .font-normal
+  font-weight: 500; .font-medium
+  font-weight: 700; .font-bold
+ */
+
+* {
+  font-family: "Spoqa Han Sans Neo", sans-serif;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  * {
+    @apply pointer-events-none;
+  }
+  a,
+  button {
+    @apply pointer-events-auto;
+  }
+}
