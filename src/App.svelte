@@ -29,7 +29,8 @@
 
 <div
   class="pointer-events-auto fixed inset-0 flex select-none flex-col bg-white pt-16 pb-12 transition-colors dark:bg-slate-800"
-  class:bg-gray-200={isDraggedOver}
+  class:bg-gray-300={isDraggedOver}
+  class:dark:bg-slate-700={isDraggedOver}
   on:dragover|preventDefault|stopPropagation={handleDragOver}
   on:dragleave|preventDefault|stopPropagation={handleDragLeave}
   on:drop|preventDefault|stopPropagation={handleDrop}
