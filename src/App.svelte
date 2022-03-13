@@ -53,7 +53,7 @@
       {#if !isDraggedOver}
         <h1
           transition:slide
-          class="text-4xl font-extrabold tracking-tight text-gray-800 dark:text-gray-100 sm:text-5xl"
+          class="text-5xl font-extrabold tracking-tight text-gray-800 dark:text-gray-100"
         >
           자소 분리 해결
         </h1>
