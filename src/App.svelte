@@ -39,9 +39,11 @@
 </script>
 
 <div
-  class="pointer-events-auto fixed inset-0 flex select-none flex-col bg-white pt-16 pb-12 transition-colors dark:bg-slate-800"
+  class="pointer-events-auto fixed inset-0 flex select-none flex-col bg-white pt-16 pb-12 transition-colors"
+  class:bg-gray-50={!isDraggedOver}
   class:bg-gray-300={isDraggedOver}
-  class:dark:bg-slate-700={isDraggedOver}
+  class:dark:bg-slate-900={!isDraggedOver}
+  class:dark:bg-slate-800={isDraggedOver}
   on:dragover|preventDefault|stopPropagation={handleDragOver}
   on:dragleave|preventDefault|stopPropagation={handleDragLeave}
   on:drop|preventDefault|stopPropagation={handleDrop}
@@ -53,12 +55,18 @@
       {#if !isDraggedOver}
         <h1
           transition:slide
-          class="text-5xl font-extrabold tracking-tight text-gray-800 dark:text-gray-100"
+          class="text-5xl font-extrabold tracking-tight text-gray-800 dark:text-gray-200"
         >
           자소 분리 해결
         </h1>
       {/if}
-      <p class="mt-4 text-base text-gray-500 dark:text-gray-400">
+      <p
+        class="mt-4 text-base"
+        class:text-gray-500={!isDraggedOver}
+        class:text-gray-600={isDraggedOver}
+        class:dark:text-gray-400={!isDraggedOver}
+        class:dark:text-gray-300={isDraggedOver}
+      >
         {#if !isDraggedOver}
           <input
             class="hidden"
