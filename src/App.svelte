@@ -2,6 +2,8 @@
   import { slide } from "svelte/transition";
 
   import "./lib/style.css";
+
+  import BackhandIndexPointingRight from "./assets/emoji/1F449.svelte";
   import { downloadFiles, downloadItems } from "./lib/functions";
 
   const { VITE_GITHUB_URL } = import.meta.env;
@@ -55,9 +57,17 @@
       {#if !isDraggedOver}
         <h1
           transition:slide
-          class="text-5xl font-extrabold tracking-tight text-gray-800 dark:text-gray-200"
+          class="text-2xl font-extrabold tracking-tight text-gray-800 dark:text-gray-200"
         >
-          자소 분리 해결
+          <span class="sm:hidden">ㅍㅏㅇㅣㄹㅁㅕㅇ</span>
+          <span class="hidden sm:inline">ㅍㅏㅇㅣㄹ ㅇㅣㄹㅡㅁ</span>
+          <!-- SVG positioning from https://blog.prototypr.io/d44b3d7b26b4 -->
+          <span class="relative top-0.5 inline-flex h-6 w-6 self-center">
+            <!-- Emoji from https://github.com/sensadesign/sensaemoji -->
+            <BackhandIndexPointingRight />
+          </span>
+          <span class="sm:hidden">파일명</span>
+          <span class="hidden sm:inline">파일 이름</span>
         </h1>
       {/if}
       <p
