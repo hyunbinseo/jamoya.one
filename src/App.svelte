@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { slide } from "svelte/transition";
+
   import "./lib/style.css";
   import { downloadFiles, downloadItems } from "./lib/functions";
 
@@ -37,9 +39,11 @@
 </script>
 
 <div
-  class="pointer-events-auto fixed inset-0 flex select-none flex-col bg-white pt-16 pb-12 transition-colors dark:bg-slate-800"
+  class="pointer-events-auto fixed inset-0 flex select-none flex-col bg-white pt-16 pb-12 transition-colors"
+  class:bg-gray-50={!isDraggedOver}
   class:bg-gray-300={isDraggedOver}
-  class:dark:bg-slate-700={isDraggedOver}
+  class:dark:bg-slate-900={!isDraggedOver}
+  class:dark:bg-slate-800={isDraggedOver}
   on:dragover|preventDefault|stopPropagation={handleDragOver}
   on:dragleave|preventDefault|stopPropagation={handleDragLeave}
   on:drop|preventDefault|stopPropagation={handleDrop}
@@ -48,12 +52,21 @@
     class="mx-auto flex w-full max-w-7xl flex-grow flex-col justify-center px-4 sm:px-6 lg:px-8"
   >
     <div class="text-center">
-      <h1
-        class="text-4xl font-extrabold tracking-tight text-gray-800 dark:text-gray-100 sm:text-5xl"
+      {#if !isDraggedOver}
+        <h1
+          transition:slide
+          class="text-5xl font-extrabold tracking-tight text-gray-800 dark:text-gray-200"
+        >
+          자소 분리 해결
+        </h1>
+      {/if}
+      <p
+        class="mt-4 text-base"
+        class:text-gray-500={!isDraggedOver}
+        class:text-gray-600={isDraggedOver}
+        class:dark:text-gray-400={!isDraggedOver}
+        class:dark:text-gray-300={isDraggedOver}
       >
-        자소 분리 해결
-      </h1>
-      <p class="mt-4 text-base text-gray-500 dark:text-gray-400">
         {#if !isDraggedOver}
           <input
             class="hidden"
@@ -71,38 +84,46 @@
           </button>
           이곳에 끌어다 놓으세요.
         {:else}
-          파일을 내려 놓으면 변환이 시작됩니다.
+          끌어온 폴더와 파일을 이곳에 내려놓으세요.
         {/if}
       </p>
     </div>
   </main>
-  <footer
-    class="mx-auto w-full max-w-7xl flex-shrink-0 px-4 sm:px-6 lg:px-8"
-    class:invisible={isDraggedOver}
-  >
-    <nav
-      class="flex justify-center space-x-4 text-sm text-gray-500 dark:text-gray-400"
+  {#if !isDraggedOver}
+    <footer
+      transition:slide
+      class="mx-auto w-full max-w-7xl flex-shrink-0 px-4 sm:px-6 lg:px-8"
     >
-      <a
-        href="{VITE_GITHUB_URL}#readme"
-        class="hover:text-gray-600 dark:hover:text-gray-300"
+      <nav
+        class="flex justify-center space-x-4 text-sm text-gray-500 dark:text-gray-400"
       >
-        도구 소개
-      </a>
-      <span class="inline-block border-l border-gray-300" aria-hidden="true" />
-      <a
-        href="{VITE_GITHUB_URL}/discussions"
-        class="hover:text-gray-600 dark:hover:text-gray-300"
-      >
-        문의 제안
-      </a>
-      <span class="inline-block border-l border-gray-300" aria-hidden="true" />
-      <a
-        href="{VITE_GITHUB_URL}/issues"
-        class="hover:text-gray-600 dark:hover:text-gray-300"
-      >
-        오류 제보
-      </a>
-    </nav>
-  </footer>
+        <a
+          href="{VITE_GITHUB_URL}#readme"
+          class="hover:text-gray-600 dark:hover:text-gray-300"
+        >
+          도구 소개
+        </a>
+        <span
+          class="inline-block border-l border-gray-300"
+          aria-hidden="true"
+        />
+        <a
+          href="{VITE_GITHUB_URL}/discussions"
+          class="hover:text-gray-600 dark:hover:text-gray-300"
+        >
+          문의 제안
+        </a>
+        <span
+          class="inline-block border-l border-gray-300"
+          aria-hidden="true"
+        />
+        <a
+          href="{VITE_GITHUB_URL}/issues"
+          class="hover:text-gray-600 dark:hover:text-gray-300"
+        >
+          오류 제보
+        </a>
+      </nav>
+    </footer>
+  {/if}
 </div>
