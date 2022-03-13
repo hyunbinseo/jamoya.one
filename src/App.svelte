@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { slide } from "svelte/transition";
+
   import "./lib/style.css";
   import { downloadFiles, downloadItems } from "./lib/functions";
 
@@ -48,11 +50,14 @@
     class="mx-auto flex w-full max-w-7xl flex-grow flex-col justify-center px-4 sm:px-6 lg:px-8"
   >
     <div class="text-center">
-      <h1
-        class="text-4xl font-extrabold tracking-tight text-gray-800 dark:text-gray-100 sm:text-5xl"
-      >
-        자소 분리 해결
-      </h1>
+      {#if !isDraggedOver}
+        <h1
+          transition:slide
+          class="text-4xl font-extrabold tracking-tight text-gray-800 dark:text-gray-100 sm:text-5xl"
+        >
+          자소 분리 해결
+        </h1>
+      {/if}
       <p class="mt-4 text-base text-gray-500 dark:text-gray-400">
         {#if !isDraggedOver}
           <input
@@ -76,33 +81,41 @@
       </p>
     </div>
   </main>
-  <footer
-    class="mx-auto w-full max-w-7xl flex-shrink-0 px-4 sm:px-6 lg:px-8"
-    class:invisible={isDraggedOver}
-  >
-    <nav
-      class="flex justify-center space-x-4 text-sm text-gray-500 dark:text-gray-400"
+  {#if !isDraggedOver}
+    <footer
+      transition:slide
+      class="mx-auto w-full max-w-7xl flex-shrink-0 px-4 sm:px-6 lg:px-8"
     >
-      <a
-        href="{VITE_GITHUB_URL}#readme"
-        class="hover:text-gray-600 dark:hover:text-gray-300"
+      <nav
+        class="flex justify-center space-x-4 text-sm text-gray-500 dark:text-gray-400"
       >
-        도구 소개
-      </a>
-      <span class="inline-block border-l border-gray-300" aria-hidden="true" />
-      <a
-        href="{VITE_GITHUB_URL}/discussions"
-        class="hover:text-gray-600 dark:hover:text-gray-300"
-      >
-        문의 제안
-      </a>
-      <span class="inline-block border-l border-gray-300" aria-hidden="true" />
-      <a
-        href="{VITE_GITHUB_URL}/issues"
-        class="hover:text-gray-600 dark:hover:text-gray-300"
-      >
-        오류 제보
-      </a>
-    </nav>
-  </footer>
+        <a
+          href="{VITE_GITHUB_URL}#readme"
+          class="hover:text-gray-600 dark:hover:text-gray-300"
+        >
+          도구 소개
+        </a>
+        <span
+          class="inline-block border-l border-gray-300"
+          aria-hidden="true"
+        />
+        <a
+          href="{VITE_GITHUB_URL}/discussions"
+          class="hover:text-gray-600 dark:hover:text-gray-300"
+        >
+          문의 제안
+        </a>
+        <span
+          class="inline-block border-l border-gray-300"
+          aria-hidden="true"
+        />
+        <a
+          href="{VITE_GITHUB_URL}/issues"
+          class="hover:text-gray-600 dark:hover:text-gray-300"
+        >
+          오류 제보
+        </a>
+      </nav>
+    </footer>
+  {/if}
 </div>
