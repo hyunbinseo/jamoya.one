@@ -57,12 +57,16 @@
       {#if !isDraggedOver}
         <h1
           transition:slide
-          class="text-2xl font-extrabold tracking-tight text-gray-800 dark:text-gray-200"
+          class="text-2xl font-extrabold tracking-tight text-gray-800 dark:text-gray-200 md:text-3xl"
         >
-          <span class="sm:hidden">ㅍㅏㅇㅣㄹㅁㅕㅇ</span>
-          <span class="hidden sm:inline">ㅍㅏㅇㅣㄹ ㅇㅣㄹㅡㅁ</span>
+          <span class="tracking-tighter sm:hidden">ㅍㅏㅇㅣㄹㅁㅕㅇ</span>
+          <span class="hidden tracking-tighter sm:inline">
+            ㅍㅏㅇㅣㄹ ㅇㅣㄹㅡㅁ
+          </span>
           <!-- SVG positioning from https://blog.prototypr.io/d44b3d7b26b4 -->
-          <span class="relative top-0.5 inline-flex h-6 w-6 self-center">
+          <span
+            class="relative top-0.5 inline-flex h-6 w-6 self-center md:h-7 md:w-7"
+          >
             <!-- Emoji from https://github.com/sensadesign/sensaemoji -->
             <BackhandIndexPointingRight />
           </span>
