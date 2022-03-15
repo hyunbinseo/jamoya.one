@@ -41,7 +41,7 @@
 </script>
 
 <div
-  class="pointer-events-auto fixed inset-0 flex select-none flex-col bg-white pt-16 pb-12 transition-colors"
+  class="fixed inset-0 flex select-none flex-col bg-white pt-16 pb-12 transition-colors"
   class:bg-gray-50={!isDraggedOver}
   class:bg-gray-300={isDraggedOver}
   class:dark:bg-slate-900={!isDraggedOver}
@@ -51,7 +51,7 @@
   on:drop|preventDefault|stopPropagation={handleDrop}
 >
   <main
-    class="mx-auto flex w-full max-w-7xl flex-grow flex-col justify-center px-4 sm:px-6 lg:px-8"
+    class="pointer-events-none mx-auto flex w-full max-w-7xl flex-grow flex-col justify-center px-4 sm:px-6 lg:px-8"
   >
     <div class="text-center">
       {#if !isDraggedOver}
@@ -91,7 +91,7 @@
           />
           <button
             type="button"
-            class="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
+            class="pointer-events-auto text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
             on:click={() => fileInput?.click()}
           >
             파일을 선택하거나
