@@ -118,6 +118,8 @@
           aria-hidden="true"
         />
         <a
+          target="_blank"
+          rel="noopener"
           href="{VITE_GITHUB_URL}/discussions"
           class="hover:text-gray-600 dark:hover:text-gray-300"
         >
@@ -128,11 +130,13 @@
           aria-hidden="true"
         />
         <a
-          href="{VITE_GITHUB_URL}/issues"
-          class="hover:text-gray-600 dark:hover:text-gray-300"
+          class="github-button"
+          href="https://github.com/hyunbinseo/mac-filename-kr"
+          data-color-scheme="no-preference: light; light: light; dark: dark;"
+          data-icon="octicon-star"
+          data-show-count="true"
+          aria-label="Star hyunbinseo/mac-filename-kr on GitHub">Star</a
         >
-          오류 제보
-        </a>
       </nav>
     </footer>
   {/if}
