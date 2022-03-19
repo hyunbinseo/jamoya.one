@@ -57,12 +57,9 @@
       {#if !isDraggedOver}
         <h1
           transition:slide
-          class="text-2xl font-extrabold tracking-tight text-gray-800 dark:text-gray-200 md:text-3xl"
+          class="text-2xl font-extrabold text-gray-800 dark:text-gray-200 md:text-3xl"
         >
-          <span class="tracking-tighter sm:hidden">ㅍㅏㅇㅣㄹㅁㅕㅇ</span>
-          <span class="hidden tracking-tighter sm:inline">
-            ㅍㅏㅇㅣㄹ ㅇㅣㄹㅡㅁ
-          </span>
+          <span class="tracking-tighter">ㅍㅏㅇㅣㄹㅁㅕㅇ</span>
           <!-- SVG positioning from https://blog.prototypr.io/d44b3d7b26b4 -->
           <span
             class="relative top-0.5 inline-flex h-6 w-6 self-center md:h-7 md:w-7"
@@ -70,8 +67,7 @@
             <!-- Emoji from https://github.com/sensadesign/sensaemoji -->
             <BackhandIndexPointingRight />
           </span>
-          <span class="sm:hidden">파일명</span>
-          <span class="hidden sm:inline">파일 이름</span>
+          <span class="tracking-tight">파일명</span>
         </h1>
       {/if}
       <p
