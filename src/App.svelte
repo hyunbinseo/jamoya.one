@@ -134,13 +134,15 @@
           aria-hidden="true"
         />
         <a
-          class="github-button"
+          target="_blank"
+          rel="noopener"
           href="https://github.com/hyunbinseo/mac-filename-kr"
-          data-color-scheme="no-preference: light; light: light; dark: dark;"
-          data-icon="octicon-star"
-          data-show-count="true"
-          aria-label="Star hyunbinseo/mac-filename-kr on GitHub">Star</a
         >
+          <img
+            alt="GitHub Repo stars"
+            src="https://img.shields.io/github/stars/hyunbinseo/mac-filename-kr?style=social"
+          />
+        </a>
       </nav>
     </footer>
   {/if}
