@@ -16,13 +16,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer base {
-  * {
-    @apply pointer-events-none;
-  }
-  a,
-  button {
-    @apply pointer-events-auto;
-  }
-}

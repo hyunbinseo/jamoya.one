@@ -41,7 +41,7 @@
 </script>
 
 <div
-  class="pointer-events-auto fixed inset-0 flex select-none flex-col bg-white pt-16 pb-12 transition-colors"
+  class="fixed inset-0 flex select-none flex-col bg-white pt-16 pb-12 transition-colors"
   class:bg-gray-50={!isDraggedOver}
   class:bg-gray-300={isDraggedOver}
   class:dark:bg-slate-900={!isDraggedOver}
@@ -51,23 +51,23 @@
   on:drop|preventDefault|stopPropagation={handleDrop}
 >
   <main
-    class="mx-auto flex w-full max-w-7xl flex-grow flex-col justify-center px-4 sm:px-6 lg:px-8"
+    class="pointer-events-none mx-auto flex w-full max-w-7xl flex-grow flex-col justify-center px-4 sm:px-6 lg:px-8"
   >
     <div class="text-center">
       {#if !isDraggedOver}
         <h1
           transition:slide
-          class="text-2xl font-extrabold tracking-tight text-gray-800 dark:text-gray-200"
+          class="text-2xl font-extrabold text-gray-800 dark:text-gray-200 md:text-3xl"
         >
-          <span class="sm:hidden">ㅍㅏㅇㅣㄹㅁㅕㅇ</span>
-          <span class="hidden sm:inline">ㅍㅏㅇㅣㄹ ㅇㅣㄹㅡㅁ</span>
+          <span class="tracking-tighter">ㅍㅏㅇㅣㄹㅁㅕㅇ</span>
           <!-- SVG positioning from https://blog.prototypr.io/d44b3d7b26b4 -->
-          <span class="relative top-0.5 inline-flex h-6 w-6 self-center">
+          <span
+            class="relative top-0.5 inline-flex h-6 w-6 self-center md:h-7 md:w-7"
+          >
             <!-- Emoji from https://github.com/sensadesign/sensaemoji -->
             <BackhandIndexPointingRight />
           </span>
-          <span class="sm:hidden">파일명</span>
-          <span class="hidden sm:inline">파일 이름</span>
+          <span class="tracking-tight">파일명</span>
         </h1>
       {/if}
       <p
@@ -87,7 +87,7 @@
           />
           <button
             type="button"
-            class="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
+            class="pointer-events-auto text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
             on:click={() => fileInput?.click()}
           >
             파일을 선택하거나
@@ -118,6 +118,8 @@
           aria-hidden="true"
         />
         <a
+          target="_blank"
+          rel="noopener"
           href="{VITE_GITHUB_URL}/discussions"
           class="hover:text-gray-600 dark:hover:text-gray-300"
         >
@@ -128,10 +130,14 @@
           aria-hidden="true"
         />
         <a
-          href="{VITE_GITHUB_URL}/issues"
-          class="hover:text-gray-600 dark:hover:text-gray-300"
+          target="_blank"
+          rel="noopener"
+          href="https://github.com/hyunbinseo/mac-filename-kr"
         >
-          오류 제보
+          <img
+            alt="GitHub Repo stars"
+            src="https://img.shields.io/github/stars/hyunbinseo/mac-filename-kr?style=social"
+          />
         </a>
       </nav>
     </footer>
