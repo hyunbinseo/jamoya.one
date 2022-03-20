@@ -4,19 +4,23 @@
   import "./lib/style.css";
 
   import BackhandIndexPointingRight from "./assets/emoji/1F449.svelte";
+  import Badge from "./assets/Badge.svelte";
+
   import { downloadFiles, downloadItems } from "./lib/functions";
 
   const { VITE_GITHUB_URL } = import.meta.env;
 
-  let isDraggedOver = false;
+  let badgeIsLoaded = false;
+
+  let filesAreDraggedOver = false;
 
   const handleDragOver = (e: DragEvent) => {
-    isDraggedOver = true;
+    filesAreDraggedOver = true;
     e.dataTransfer.dropEffect = "copy";
   };
 
   const handleDragLeave = () => {
-    isDraggedOver = false;
+    filesAreDraggedOver = false;
   };
 
   const handleDrop = ({ dataTransfer: { items, files } }: DragEvent) => {
@@ -27,7 +31,7 @@
     }
     // on:dragleave might not be called, even if files are downloaded
     // e.g. Chromium permission - Site wants to: Download multiple files
-    isDraggedOver = false;
+    filesAreDraggedOver = false;
   };
 
   let fileInput: HTMLInputElement;
@@ -42,19 +46,17 @@
 
 <div
   class="fixed inset-0 flex select-none flex-col bg-white pt-16 pb-12 transition-colors"
-  class:bg-gray-50={!isDraggedOver}
-  class:bg-gray-300={isDraggedOver}
-  class:dark:bg-slate-900={!isDraggedOver}
-  class:dark:bg-slate-800={isDraggedOver}
+  class:bg-gray-50={!filesAreDraggedOver}
+  class:bg-gray-300={filesAreDraggedOver}
+  class:dark:bg-slate-900={!filesAreDraggedOver}
+  class:dark:bg-slate-800={filesAreDraggedOver}
   on:dragover|preventDefault|stopPropagation={handleDragOver}
-  on:dragleave|preventDefault|stopPropagation={handleDragLeave}
-  on:drop|preventDefault|stopPropagation={handleDrop}
 >
   <main
-    class="pointer-events-none mx-auto flex w-full max-w-7xl flex-grow flex-col justify-center px-4 sm:px-6 lg:px-8"
+    class="mx-auto flex w-full max-w-7xl flex-grow flex-col justify-center px-4 sm:px-6 lg:px-8"
   >
     <div class="text-center">
-      {#if !isDraggedOver}
+      {#if !filesAreDraggedOver}
         <h1
           transition:slide
           class="text-2xl font-extrabold text-gray-800 dark:text-gray-200 md:text-3xl"
@@ -72,12 +74,12 @@
       {/if}
       <p
         class="mt-4 text-base"
-        class:text-gray-500={!isDraggedOver}
-        class:text-gray-600={isDraggedOver}
-        class:dark:text-gray-400={!isDraggedOver}
-        class:dark:text-gray-300={isDraggedOver}
+        class:text-gray-500={!filesAreDraggedOver}
+        class:text-gray-600={filesAreDraggedOver}
+        class:dark:text-gray-400={!filesAreDraggedOver}
+        class:dark:text-gray-300={filesAreDraggedOver}
       >
-        {#if !isDraggedOver}
+        {#if !filesAreDraggedOver}
           <input
             class="hidden"
             type="file"
@@ -87,7 +89,7 @@
           />
           <button
             type="button"
-            class="pointer-events-auto text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
+            class="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
             on:click={() => fileInput?.click()}
           >
             파일을 선택하거나
@@ -99,7 +101,7 @@
       </p>
     </div>
   </main>
-  {#if !isDraggedOver}
+  {#if !filesAreDraggedOver}
     <footer
       transition:slide
       class="mx-auto w-full max-w-7xl flex-shrink-0 px-4 sm:px-6 lg:px-8"
@@ -120,7 +122,7 @@
         <a
           target="_blank"
           rel="noopener"
-          href="{VITE_GITHUB_URL}/discussions"
+          href="{VITE_GITHUB_URL}/discussions/1"
           class="hover:text-gray-600 dark:hover:text-gray-300"
         >
           문의 제안
@@ -129,13 +131,18 @@
           class="inline-block border-l border-gray-300"
           aria-hidden="true"
         />
+        {#if !badgeIsLoaded}
+          <Badge />
+        {/if}
         <a
           target="_blank"
           rel="noopener"
           href="https://github.com/hyunbinseo/mac-filename-kr"
+          class:hidden={!badgeIsLoaded}
         >
           <img
             alt="GitHub Repo stars"
+            on:load={() => (badgeIsLoaded = true)}
             src="https://img.shields.io/github/stars/hyunbinseo/mac-filename-kr?style=social"
           />
         </a>
@@ -143,3 +150,12 @@
     </footer>
   {/if}
 </div>
+
+{#if filesAreDraggedOver}
+  <div
+    class="fixed inset-0"
+    on:dragover|preventDefault|stopPropagation
+    on:dragleave|preventDefault|stopPropagation={handleDragLeave}
+    on:drop|preventDefault|stopPropagation={handleDrop}
+  />
+{/if}
