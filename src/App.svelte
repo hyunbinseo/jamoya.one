@@ -4,9 +4,13 @@
   import "./lib/style.css";
 
   import BackhandIndexPointingRight from "./assets/emoji/1F449.svelte";
+  import Badge from "./assets/Badge.svelte";
+
   import { downloadFiles, downloadItems } from "./lib/functions";
 
   const { VITE_GITHUB_URL } = import.meta.env;
+
+  let badgeIsLoaded = false;
 
   let isDraggedOver = false;
 
@@ -129,13 +133,18 @@
           class="inline-block border-l border-gray-300"
           aria-hidden="true"
         />
+        {#if !badgeIsLoaded}
+          <Badge />
+        {/if}
         <a
           target="_blank"
           rel="noopener"
+          class:hidden={!badgeIsLoaded}
           href="https://github.com/hyunbinseo/mac-filename-kr"
         >
           <img
             alt="GitHub Repo stars"
+            on:load={() => (badgeIsLoaded = true)}
             src="https://img.shields.io/github/stars/hyunbinseo/mac-filename-kr?style=social"
           />
         </a>
