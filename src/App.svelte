@@ -51,11 +51,9 @@
   class:dark:bg-slate-900={!filesAreDraggedOver}
   class:dark:bg-slate-800={filesAreDraggedOver}
   on:dragover|preventDefault|stopPropagation={handleDragOver}
-  on:dragleave|preventDefault|stopPropagation={handleDragLeave}
-  on:drop|preventDefault|stopPropagation={handleDrop}
 >
   <main
-    class="pointer-events-none mx-auto flex w-full max-w-7xl flex-grow flex-col justify-center px-4 sm:px-6 lg:px-8"
+    class="mx-auto flex w-full max-w-7xl flex-grow flex-col justify-center px-4 sm:px-6 lg:px-8"
   >
     <div class="text-center">
       {#if !filesAreDraggedOver}
@@ -91,7 +89,7 @@
           />
           <button
             type="button"
-            class="pointer-events-auto text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
+            class="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
             on:click={() => fileInput?.click()}
           >
             파일을 선택하거나
@@ -139,8 +137,8 @@
         <a
           target="_blank"
           rel="noopener"
-          class:hidden={!badgeIsLoaded}
           href="https://github.com/hyunbinseo/mac-filename-kr"
+          class:hidden={!badgeIsLoaded}
         >
           <img
             alt="GitHub Repo stars"
@@ -152,3 +150,12 @@
     </footer>
   {/if}
 </div>
+
+{#if filesAreDraggedOver}
+  <div
+    class="fixed inset-0"
+    on:dragover|preventDefault|stopPropagation
+    on:dragleave|preventDefault|stopPropagation={handleDragLeave}
+    on:drop|preventDefault|stopPropagation={handleDrop}
+  />
+{/if}
