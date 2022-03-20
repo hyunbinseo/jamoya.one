@@ -124,7 +124,7 @@
         <a
           target="_blank"
           rel="noopener"
-          href="{VITE_GITHUB_URL}/discussions"
+          href="{VITE_GITHUB_URL}/discussions/1"
           class="hover:text-gray-600 dark:hover:text-gray-300"
         >
           문의 제안
