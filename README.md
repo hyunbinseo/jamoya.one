@@ -5,7 +5,7 @@
 - `ㅂㅗㄱㅗㅅㅓ.pdf` 👉 `보고서.pdf`
 - 프로그램 다운로드 없이 웹에서 간편하게
 
-https://user-images.githubusercontent.com/47051820/159926566-f9b1c25e-4a0a-4979-9851-1ccae7ce1a0e.mp4
+https://user-images.githubusercontent.com/47051820/160055676-7c5f326b-cd72-4322-8150-488fae25ee00.mp4
 
 ## 도구 특징
 
