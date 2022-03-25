@@ -141,6 +141,8 @@
           class:hidden={!badgeIsLoaded}
         >
           <img
+            width="82"
+            height="20"
             alt="GitHub Repo stars"
             on:load={() => (badgeIsLoaded = true)}
             src="https://img.shields.io/github/stars/hyunbinseo/mac-filename-kr?style=social"
