@@ -26,6 +26,7 @@ const addImages = (domain: string = ''): Plugin => ({
           rel: 'icon',
           type: 'image/png',
           href: `${domain}/favicon.png`,
+          sizes: 'any',
         },
       },
       {
