@@ -1,4 +1,6 @@
-export const downloadFile = (file: File) => {
+let downloadCounter = 0;
+
+const downloadFileWithAnchor = (file: File) => {
   const anchor = document.createElement('a');
   const objectUrl = URL.createObjectURL(new Blob([file]));
   anchor.href = objectUrl;
@@ -9,7 +11,14 @@ export const downloadFile = (file: File) => {
   URL.revokeObjectURL(objectUrl);
 };
 
+export const downloadFile = (file: File) => {
+  // Without timeout, Chromium limits simultaneous downloads to 10 files
+  setTimeout(() => downloadFileWithAnchor(file), downloadCounter * 200);
+  downloadCounter += 1;
+};
+
 export const downloadFiles = (files: FileList) => {
+  downloadCounter = 0;
   for (let i = 0; i < files.length; i += 1) {
     downloadFile(files[i]);
   }
@@ -33,6 +42,7 @@ const scanAndDownloadFiles = (item: FileSystemEntry) => {
 };
 
 export const downloadItems = (items: DataTransferItemList) => {
+  downloadCounter = 0;
   for (let i = 0; i < items.length; i += 1) {
     const item = items[i];
     if (item.webkitGetAsEntry) {
