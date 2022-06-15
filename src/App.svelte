@@ -59,7 +59,7 @@
       {#if !filesAreDraggedOver}
         <h1
           transition:slide
-          class="text-2xl font-extrabold text-gray-800 dark:text-gray-200 md:text-3xl"
+          class="text-2xl font-bold text-gray-800 dark:text-gray-200 md:text-3xl"
         >
           <span class="tracking-tighter">ㅍㅏㅇㅣㄹㅁㅕㅇ</span>
           <!-- SVG positioning from https://blog.prototypr.io/d44b3d7b26b4 -->
