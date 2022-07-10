@@ -4,6 +4,9 @@
 <!-- Favicon from https://github.com/astrit/css.gg -->
 
 <head>
+  <script nomodule>
+    window.location.href = '/unsupported.html';
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>자모야 모여라</title>
@@ -19,10 +22,6 @@
 </head>
 
 <body>
-  <script>
-    // Trimmed `.html` to support Cloudflare Pages. Does not work in `vite dev`.
-    if (/MSIE|Trident/.test(window.navigator.userAgent)) location.href = '/unsupported';
-  </script>
   <div id="app"></div>
   <script type="module" src="/src/main.ts"></script>
 </body>
