@@ -40,16 +40,12 @@ const addImages = (domain: string = ''): Plugin => ({
 
 // https://vitejs.dev/config/
 export default ({ mode }: ConfigEnv): UserConfigExport => {
-  const isProduction = mode === 'production';
-
   const { VITE_PAGE_DOMAIN } = loadEnv(mode, process.cwd());
-
-  const domain = isProduction ? VITE_PAGE_DOMAIN : undefined;
 
   return defineConfig({
     plugins: [
       svelte(),
-      addImages(domain),
+      ...(mode === 'production' ? [addImages(VITE_PAGE_DOMAIN)] : []),
     ],
   });
 };
