@@ -3,9 +3,6 @@ import { svelte } from '@sveltejs/vite-plugin-svelte';
 
 import type { Plugin, ConfigEnv, UserConfigExport } from 'vite';
 
-// Naver requires absolute url for favicon href
-// Reference https://searchadvisor.naver.com/guide/markup-favicon
-
 const addImages = (domain: string = ''): Plugin => ({
   name: 'add-favicon-and-og:image-plugin',
   transformIndexHtml() {
