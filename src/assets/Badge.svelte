@@ -42,7 +42,6 @@
     text-rendering="geometricPrecision"
     font-weight="700"
     font-size="110px"
-    line-height="14px"
   >
     <a target="_blank" href="https://github.com/hyunbinseo/mac-filename-kr">
       <text
