@@ -34,6 +34,22 @@ const addImages = (domain: string = ''): Plugin => ({
           content: `${domain}/open-graph.jpg`,
         },
       },
+      {
+        injectTo: 'head',
+        tag: 'meta',
+        attrs: {
+          property: 'twitter:image',
+          content: `${domain}/open-graph.jpg`,
+        },
+      },
+      {
+        injectTo: 'head',
+        tag: 'meta',
+        attrs: {
+          property: 'og:url',
+          content: `${domain}/`,
+        },
+      },
     ];
   },
 });
