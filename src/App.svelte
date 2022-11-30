@@ -42,67 +42,60 @@
 </script>
 
 <div
-  class="fixed inset-0 flex select-none flex-col bg-white pt-16 pb-12 transition-colors"
+  class="fixed inset-0 flex select-none flex-col pt-16 pb-12 transition-colors"
   class:bg-gray-50={!filesAreDraggedOver}
-  class:bg-gray-300={filesAreDraggedOver}
+  class:bg-gray-200={filesAreDraggedOver}
   class:dark:bg-slate-900={!filesAreDraggedOver}
   class:dark:bg-slate-800={filesAreDraggedOver}
   on:dragover|preventDefault|stopPropagation={handleDragOver}
 >
-  <main
-    class="mx-auto flex w-full max-w-7xl flex-grow flex-col justify-center px-4 sm:px-6 lg:px-8"
-  >
-    <div class="text-center">
-      {#if !filesAreDraggedOver}
-        <h1
-          transition:slide
-          class="text-2xl text-gray-800 dark:text-gray-200 md:text-3xl"
-        >
-          <span class="tracking-tighter">ㅍㅏㅇㅣㄹㅁㅕㅇ</span>
-          <!-- SVG positioning from https://blog.prototypr.io/d44b3d7b26b4 -->
-          <span
-            class="relative top-0.5 inline-flex h-6 w-6 self-center md:h-7 md:w-7"
-          >
-            <!-- Emoji from https://github.com/sensadesign/sensaemoji -->
-            <BackhandIndexPointingRight />
-          </span>
-          <span class="tracking-tight">파일명</span>
-        </h1>
-      {/if}
-      <p
-        class="mt-4 text-base"
-        class:text-gray-500={!filesAreDraggedOver}
-        class:text-gray-600={filesAreDraggedOver}
-        class:dark:text-gray-400={!filesAreDraggedOver}
-        class:dark:text-gray-300={filesAreDraggedOver}
+  <main class="flex flex-grow flex-col justify-center text-center">
+    {#if !filesAreDraggedOver}
+      <h1
+        transition:slide
+        class="text-2xl text-gray-800 dark:text-gray-200 md:text-3xl"
       >
-        {#if !filesAreDraggedOver}
-          <input
-            class="hidden"
-            type="file"
-            multiple
-            bind:this={fileInput}
-            on:change={handleFileChange}
-          />
-          <button
-            type="button"
-            class="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
-            on:click={() => fileInput?.click()}
-          >
-            파일을 선택하거나
-          </button>
-          이곳에 끌어다 놓으세요.
-        {:else}
-          끌어온 폴더와 파일을 이곳에 내려놓으세요.
-        {/if}
-      </p>
-    </div>
+        <span class="tracking-tighter">ㅍㅏㅇㅣㄹㅁㅕㅇ</span>
+        <!-- SVG positioning from https://blog.prototypr.io/d44b3d7b26b4 -->
+        <span
+          class="relative top-0.5 inline-flex h-6 w-6 self-center md:h-7 md:w-7"
+        >
+          <!-- Emoji from https://github.com/sensadesign/sensaemoji -->
+          <BackhandIndexPointingRight />
+        </span>
+        <span class="tracking-tight">파일명</span>
+      </h1>
+    {/if}
+    <p
+      class="mt-4 text-base"
+      class:text-gray-500={!filesAreDraggedOver}
+      class:text-gray-600={filesAreDraggedOver}
+      class:dark:text-gray-400={!filesAreDraggedOver}
+      class:dark:text-gray-300={filesAreDraggedOver}
+    >
+      {#if !filesAreDraggedOver}
+        <input
+          class="hidden"
+          type="file"
+          multiple
+          bind:this={fileInput}
+          on:change={handleFileChange}
+        />
+        <button
+          type="button"
+          class="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
+          on:click={() => fileInput?.click()}
+        >
+          파일을 선택하거나
+        </button>
+        이곳에 끌어다 놓으세요.
+      {:else}
+        끌어온 폴더와 파일을 이곳에 내려놓으세요.
+      {/if}
+    </p>
   </main>
   {#if !filesAreDraggedOver}
-    <footer
-      transition:slide
-      class="mx-auto w-full max-w-7xl flex-shrink-0 px-4 sm:px-6 lg:px-8"
-    >
+    <footer transition:slide>
       <nav
         class="flex justify-center space-x-4 text-sm text-gray-500 dark:text-gray-400"
       >
