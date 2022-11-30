@@ -95,49 +95,47 @@
     </p>
   </main>
   {#if !filesAreDraggedOver}
-    <footer transition:slide>
-      <nav
-        class="flex justify-center space-x-4 text-sm text-gray-500 dark:text-gray-400"
-      >
-        <a
-          href="{VITE_GITHUB_URL}#readme"
-          class="hover:text-gray-600 dark:hover:text-gray-300"
-        >
-          도구 소개
-        </a>
-        <span
-          class="inline-block border-l border-gray-300"
-          aria-hidden="true"
-        />
-        <a
-          target="_blank"
-          rel="noopener"
-          href="{VITE_GITHUB_URL}/discussions/1"
-          class="hover:text-gray-600 dark:hover:text-gray-300"
-        >
-          문의 제안
-        </a>
-        <span
-          class="inline-block border-l border-gray-300"
-          aria-hidden="true"
-        />
-        {#if !badgeIsLoaded}
-          <Badge />
-        {/if}
-        <a
-          target="_blank"
-          rel="noopener"
-          href="https://github.com/hyunbinseo/mac-filename-kr"
-          class:hidden={!badgeIsLoaded}
-        >
-          <img
-            width="88"
-            height="20"
-            alt="GitHub Repo stars"
-            on:load={() => (badgeIsLoaded = true)}
-            src="https://img.shields.io/github/stars/hyunbinseo/mac-filename-kr?style=social"
-          />
-        </a>
+    <footer transition:slide class="mx-auto">
+      <nav>
+        <ul class="flex text-sm text-gray-500 dark:text-gray-400">
+          <li>
+            <a
+              href="{VITE_GITHUB_URL}#readme"
+              class="hover:text-gray-600 dark:hover:text-gray-300"
+            >
+              도구 소개
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener"
+              href="{VITE_GITHUB_URL}/discussions/1"
+              class="hover:text-gray-600 dark:hover:text-gray-300"
+            >
+              문의 제안
+            </a>
+          </li>
+          <li>
+            {#if !badgeIsLoaded}
+              <Badge />
+            {/if}
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://github.com/hyunbinseo/mac-filename-kr"
+              class:hidden={!badgeIsLoaded}
+            >
+              <img
+                width="88"
+                height="20"
+                alt="GitHub Repo stars"
+                on:load={() => (badgeIsLoaded = true)}
+                src="https://img.shields.io/github/stars/hyunbinseo/mac-filename-kr?style=social"
+              />
+            </a>
+          </li>
+        </ul>
       </nav>
     </footer>
   {/if}
@@ -151,3 +149,12 @@
     on:drop|preventDefault|stopPropagation={handleDrop}
   />
 {/if}
+
+<style>
+  footer > nav > ul > li:not(:first-child) {
+    border-left-color: #d1d5db;
+    border-left-width: 1px;
+    padding-left: 1rem;
+    margin-left: 1rem;
+  }
+</style>
