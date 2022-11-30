@@ -109,7 +109,7 @@
           <li>
             <a
               target="_blank"
-              rel="noopener"
+              rel="noreferrer"
               href="{VITE_GITHUB_URL}/discussions/1"
               class="hover:text-gray-600 dark:hover:text-gray-300"
             >
@@ -122,7 +122,7 @@
             {/if}
             <a
               target="_blank"
-              rel="noopener"
+              rel="noreferrer"
               href="https://github.com/hyunbinseo/mac-filename-kr"
               class:hidden={!badgeIsLoaded}
             >
