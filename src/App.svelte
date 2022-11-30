@@ -141,7 +141,7 @@
           class:hidden={!badgeIsLoaded}
         >
           <img
-            width="82"
+            width="88"
             height="20"
             alt="GitHub Repo stars"
             on:load={() => (badgeIsLoaded = true)}
