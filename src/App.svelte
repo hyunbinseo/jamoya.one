@@ -43,17 +43,16 @@
 
 <div
   class="fixed inset-0 flex select-none flex-col pt-16 pb-12 transition-colors"
-  class:bg-gray-50={!filesAreDraggedOver}
-  class:bg-gray-200={filesAreDraggedOver}
-  class:dark:bg-slate-900={!filesAreDraggedOver}
-  class:dark:bg-slate-800={filesAreDraggedOver}
+  class:bg-zinc-100={filesAreDraggedOver}
+  class:dark:bg-zinc-900={!filesAreDraggedOver}
+  class:dark:bg-zinc-800={filesAreDraggedOver}
   on:dragover|preventDefault|stopPropagation={handleDragOver}
 >
   <main class="flex flex-grow flex-col justify-center text-center">
     {#if !filesAreDraggedOver}
       <h1
         transition:slide
-        class="text-2xl text-gray-800 dark:text-gray-200 md:text-3xl"
+        class="text-2xl text-zinc-800 dark:text-zinc-100 md:text-3xl"
       >
         <span class="tracking-tighter">ㅍㅏㅇㅣㄹㅁㅕㅇ</span>
         <!-- SVG positioning from https://blog.prototypr.io/d44b3d7b26b4 -->
@@ -68,10 +67,10 @@
     {/if}
     <p
       class="mt-4 text-base"
-      class:text-gray-500={!filesAreDraggedOver}
-      class:text-gray-600={filesAreDraggedOver}
-      class:dark:text-gray-400={!filesAreDraggedOver}
-      class:dark:text-gray-300={filesAreDraggedOver}
+      class:text-zinc-600={!filesAreDraggedOver}
+      class:text-zinc-700={filesAreDraggedOver}
+      class:dark:text-zinc-300={!filesAreDraggedOver}
+      class:dark:text-zinc-200={filesAreDraggedOver}
     >
       {#if !filesAreDraggedOver}
         <input
@@ -83,7 +82,7 @@
         />
         <button
           type="button"
-          class="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
+          class="text-teal-600 hover:text-teal-700 dark:hover:text-teal-500"
           on:click={() => fileInput?.click()}
         >
           파일을 선택하거나
@@ -97,12 +96,9 @@
   {#if !filesAreDraggedOver}
     <footer transition:slide class="mx-auto">
       <nav>
-        <ul class="flex text-sm text-gray-500 dark:text-gray-400">
+        <ul class="flex text-sm text-zinc-600 dark:text-zinc-300">
           <li>
-            <a
-              href="{VITE_GITHUB_URL}#readme"
-              class="hover:text-gray-600 dark:hover:text-gray-300"
-            >
+            <a href="{VITE_GITHUB_URL}#readme" class="hover:text-teal-600">
               도구 소개
             </a>
           </li>
@@ -111,7 +107,7 @@
               target="_blank"
               rel="noreferrer"
               href="{VITE_GITHUB_URL}/discussions/1"
-              class="hover:text-gray-600 dark:hover:text-gray-300"
+              class="hover:text-teal-600"
             >
               문의 제안
             </a>
