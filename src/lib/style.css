@@ -7,3 +7,7 @@ body {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  @apply border-zinc-300;
+}

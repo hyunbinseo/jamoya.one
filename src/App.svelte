@@ -35,19 +35,44 @@
 
   const handleFileChange = (e: Event) => {
     const input = e.target as HTMLInputElement;
-    const { files } = input;
-    downloadFiles(files);
+    downloadFiles(input.files);
     input.value = "";
+  };
+
+  const handleTextInput = () => {
+    const string = window.prompt("자소가 분리된 문자열을 붙여 넣으세요.");
+    window.prompt("다음 값을 복사해 사용하세요.", string.normalize("NFC"));
   };
 </script>
 
 <div
-  class="fixed inset-0 flex select-none flex-col pt-16 pb-12 transition-colors"
+  class="fixed inset-0 flex select-none flex-col py-8 transition-colors sm:py-12 md:py-16"
   class:bg-zinc-100={filesAreDraggedOver}
   class:dark:bg-zinc-900={!filesAreDraggedOver}
   class:dark:bg-zinc-800={filesAreDraggedOver}
   on:dragover|preventDefault|stopPropagation={handleDragOver}
 >
+  {#if !filesAreDraggedOver}
+    <header transition:slide class="mx-auto">
+      <nav aria-label="Tabs" class="w-72">
+        <ul class="flex text-sm text-zinc-600 dark:text-zinc-300">
+          <li>자모야 모여라</li>
+          <li class="ml-auto">
+            <span class="border-b-2 pb-2">파일명</span>
+          </li>
+          <li class="ml-6">
+            <button
+              type="button"
+              class="hover:text-teal-600"
+              on:click={handleTextInput}
+            >
+              텍스트
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  {/if}
   <main class="flex flex-grow flex-col justify-center text-center">
     {#if !filesAreDraggedOver}
       <h1
@@ -148,7 +173,6 @@
 
 <style>
   footer > nav > ul > li:not(:first-child) {
-    border-left-color: #d1d5db;
     border-left-width: 1px;
     padding-left: 1rem;
     margin-left: 1rem;
