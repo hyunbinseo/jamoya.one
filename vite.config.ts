@@ -1,7 +1,6 @@
-import { defineConfig, loadEnv } from 'vite';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
-
-import type { Plugin, ConfigEnv, UserConfigExport } from 'vite';
+import type { ConfigEnv, Plugin, UserConfigExport } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 
 const addImages = (domain: string = ''): Plugin => ({
   name: 'add-favicon-and-og:image-plugin',

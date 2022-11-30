@@ -1,12 +1,9 @@
 <script lang="ts">
   import { slide } from "svelte/transition";
-
-  import "./lib/style.css";
-
-  import BackhandIndexPointingRight from "./assets/emoji/1F449.svelte";
   import Badge from "./assets/Badge.svelte";
-
+  import BackhandIndexPointingRight from "./assets/emoji/1F449.svelte";
   import { downloadFiles, downloadItems } from "./lib/functions";
+  import "./lib/style.css";
 
   const { VITE_GITHUB_URL } = import.meta.env;
 
