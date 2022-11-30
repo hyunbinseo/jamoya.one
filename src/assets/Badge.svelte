@@ -2,7 +2,7 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="82"
+  width="88"
   height="20"
 >
   <linearGradient id="a" x2="0" y2="100%">
@@ -43,15 +43,21 @@
     font-weight="700"
     font-size="110px"
   >
-    <a target="_blank" href="https://github.com/hyunbinseo/mac-filename-kr">
+    <a
+      target="_blank"
+      rel="noreferrer"
+      href="https://github.com/hyunbinseo/mac-filename-kr"
+    >
       <text
         aria-hidden="true"
         x="355"
         y="150"
         fill="#fff"
         transform="scale(.1)"
-        textLength="270">Stars</text
+        textLength="270"
       >
+        Stars
+      </text>
       <text x="355" y="140" transform="scale(.1)" textLength="270">Stars</text>
       <rect
         id="llink"
@@ -66,6 +72,7 @@
     </a>
     <a
       target="_blank"
+      rel="noreferrer"
       href="https://github.com/hyunbinseo/mac-filename-kr/stargazers"
     >
       <rect width="22" x="60" height="20" fill="rgba(0,0,0,0)" />
