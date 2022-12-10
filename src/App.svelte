@@ -46,15 +46,15 @@
 </script>
 
 <div
-  class="fixed inset-0 flex select-none flex-col py-8 transition-colors sm:py-12 md:py-16"
+  class="fixed inset-0 flex select-none flex-col py-6 transition-colors sm:py-12 md:py-16"
   class:bg-zinc-100={filesAreDraggedOver}
   class:dark:bg-zinc-900={!filesAreDraggedOver}
   class:dark:bg-zinc-800={filesAreDraggedOver}
   on:dragover|preventDefault|stopPropagation={handleDragOver}
 >
   {#if !filesAreDraggedOver}
-    <header transition:slide class="mx-auto">
-      <nav aria-label="Tabs" class="w-72">
+    <header transition:slide class="px-6">
+      <nav aria-label="Tabs" class="mx-auto max-w-xs">
         <ul class="flex text-sm text-zinc-600 dark:text-zinc-300">
           <li>자모야 모여라</li>
           <li class="ml-auto">
@@ -119,25 +119,25 @@
     </p>
   </main>
   {#if !filesAreDraggedOver}
-    <footer transition:slide class="mx-auto">
-      <nav>
+    <footer transition:slide class="px-6">
+      <nav class="mx-auto max-w-xs">
         <ul class="flex text-sm text-zinc-600 dark:text-zinc-300">
           <li>
             <a href="{VITE_GITHUB_URL}#readme" class="hover:text-teal-600">
-              도구 소개
+              소개
             </a>
           </li>
-          <li>
+          <li class="ml-3 border-l pl-3">
             <a
               target="_blank"
               rel="noreferrer"
               href="{VITE_GITHUB_URL}/discussions/1"
               class="hover:text-teal-600"
             >
-              문의 제안
+              문의 및 제안
             </a>
           </li>
-          <li>
+          <li class="ml-auto">
             {#if !badgeIsLoaded}
               <Badge />
             {/if}
@@ -170,11 +170,3 @@
     on:drop|preventDefault|stopPropagation={handleDrop}
   />
 {/if}
-
-<style>
-  footer > nav > ul > li:not(:first-child) {
-    border-left-width: 1px;
-    padding-left: 1rem;
-    margin-left: 1rem;
-  }
-</style>
