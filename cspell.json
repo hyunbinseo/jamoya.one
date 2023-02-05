@@ -1,12 +1,10 @@
 // cSpell Settings
 {
-  // words - list of words to be always considered correct
-  "words": [],
-  // flagWords - list of words to be always considered incorrect
-  // This is useful for offensive words and common spelling errors.
-  // For example "hte" should be "the"
-  "flagWords": [],
-  "enableFiletypes": [
-    "svelte"
-  ]
+	// words - list of words to be always considered correct
+	"words": [],
+	// flagWords - list of words to be always considered incorrect
+	// This is useful for offensive words and common spelling errors.
+	// For example "hte" should be "the"
+	"flagWords": [],
+	"enableFiletypes": ["svelte"]
 }

@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="ko">
+	<!-- Favicon from https://github.com/astrit/css.gg -->
 
-<!-- Favicon from https://github.com/astrit/css.gg -->
+	<head>
+		<script nomodule>
+			window.location.href = '/unsupported';
+		</script>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>자모야 모여라</title>
+		<meta property="og:title" content="자모야 모여라" />
+		<meta
+			name="description"
+			content="한글 자모가 분리되어 표시되는 파일 이름을 수정하는 온라인 도구입니다. 애플 기기에서 설정한 파일명이 윈도우에서 깨져 표시될 때 유용합니다."
+		/>
+		<meta
+			property="og:description"
+			content="한글 자모가 분리되어 표시되는 파일 이름을 수정하는 온라인 도구입니다. 애플 기기에서 설정한 파일명이 윈도우에서 깨져 표시될 때 유용합니다."
+		/>
+		<meta property="og:type" content="website" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<style>
+			@media (prefers-reduced-motion: reduce) {
+				* {
+					animation-duration: 0s !important;
+					animation-iteration-count: 1 !important;
+					transition-duration: 0s !important;
+					animation-delay: 0s !important;
+				}
+			}
+		</style>
+	</head>
 
-<head>
-  <script nomodule>
-    window.location.href = '/unsupported';
-  </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>자모야 모여라</title>
-  <meta property="og:title" content="자모야 모여라" />
-  <meta name="description" content="한글 자모가 분리되어 표시되는 파일 이름을 수정하는 온라인 도구입니다. 애플 기기에서 설정한 파일명이 윈도우에서 깨져 표시될 때 유용합니다." />
-  <meta property="og:description"
-    content="한글 자모가 분리되어 표시되는 파일 이름을 수정하는 온라인 도구입니다. 애플 기기에서 설정한 파일명이 윈도우에서 깨져 표시될 때 유용합니다." />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <style>
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0s !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0s !important;
-        animation-delay: 0s !important;
-      }
-    }
-
-  </style>
-</head>
-
-<body>
-  <div id="app"></div>
-  <script type="module" src="/src/main.ts"></script>
-</body>
-
+	<body>
+		<div id="app"></div>
+		<script type="module" src="/src/main.ts"></script>
+	</body>
 </html>

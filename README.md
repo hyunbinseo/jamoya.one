@@ -12,7 +12,6 @@ https://user-images.githubusercontent.com/47051820/160055676-7c5f326b-cd72-4322-
 📥 변환된 파일은 다운로드 방식[^1]으로 제공됩니다.\
 🔡 자소가 분리된 문자열을 직접 수정할 수 있습니다.
 
-
 ## 문자열 수정
 
 1. Chrome 웹 브라우저[^2]를 사용하고 있다면
@@ -31,7 +30,7 @@ javascript:(()=>{let p=window.prompt("자소가 분리된 문자열을 붙여 �
 사용자가 제공한 파일의 이름만 `NFC` [유니코드 정규화 방식으로 변경](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/normalize)한 뒤 다운로드하는 방식입니다.
 
 ```javascript
-anchor.download = file.name.normalize("NFC");
+anchor.download = file.name.normalize('NFC');
 ```
 
 ## 기술 배경

@@ -1,8 +1,8 @@
 {
-  "htmlWhitespaceSensitivity": "ignore",
-  "plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
-  "pluginSearchDirs": false,
-  "quoteProps": "consistent",
-  "singleQuote": true,
-  "useTabs": true
+	"htmlWhitespaceSensitivity": "ignore",
+	"plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
+	"pluginSearchDirs": false,
+	"quoteProps": "consistent",
+	"singleQuote": true,
+	"useTabs": true
 }
