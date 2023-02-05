@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html lang="ko">
+	<head>
+		<script type="module">
+			document.body.style.display = 'none';
+			window.location.href = '/';
+		</script>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="robots" content="noindex" />
+		<title>호환되지 않는 웹 브라우저</title>
+	</head>
 
-<head>
-  <script type="module">
-    document.body.style.display = 'none';
-    window.location.href = '/';
-  </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex">
-  <title>호환되지 않는 웹 브라우저</title>
-</head>
+	<body>
+		<h1>호환되지 않는 웹 브라우저</h1>
 
-<body>
-  <h1>호환되지 않는 웹 브라우저</h1>
+		<h2>필수 기능이 지원되지 않습니다.</h2>
+		<ul id="unsupported-features">
+			<noscript>
+				<li>자바스크립트</li>
+			</noscript>
+		</ul>
 
-  <h2>필수 기능이 지원되지 않습니다.</h2>
-  <ul id="unsupported-features">
-    <noscript>
-      <li>자바스크립트</li>
-    </noscript>
-  </ul>
+		<script nomodule>
+			const listItem = document.createElement('li');
+			listItem.textContent = '자바스크립트 모듈';
 
-  <script nomodule>
-    const listItem = document.createElement('li');
-    listItem.textContent = '자바스크립트 모듈';
+			const list = document.querySelector('#unsupported-features');
+			list.appendChild(listItem);
+		</script>
 
-    const list = document.querySelector('#unsupported-features');
-    list.appendChild(listItem);
-  </script>
-
-  <h2>최신 웹 브라우저를 사용하십시오.</h2>
-  <ul>
-    <li>새로운 브라우저를 설치해야 할 수 있습니다.</li>
-    <li>소프트웨어 업데이트를 해야 할 수 있습니다.</li>
-  </ul>
-</body>
-
+		<h2>최신 웹 브라우저를 사용하십시오.</h2>
+		<ul>
+			<li>새로운 브라우저를 설치해야 할 수 있습니다.</li>
+			<li>소프트웨어 업데이트를 해야 할 수 있습니다.</li>
+		</ul>
+	</body>
 </html>

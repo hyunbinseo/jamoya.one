@@ -1,37 +1,37 @@
 {
-  "name": "mac-filename-kr",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
-  },
-  "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^2.0.0",
-    "@tsconfig/svelte": "^3.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.14.0",
-    "@typescript-eslint/parser": "^5.14.0",
-    "autoprefixer": "^10.4.2",
-    "eslint": "^8.10.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-svelte3": "^4.0.0",
-    "postcss": "^8.4.8",
-    "prettier": "^2.5.1",
-    "prettier-plugin-svelte": "^2.8.1",
-    "prettier-plugin-tailwindcss": "^0.2.0",
-    "svelte": "^3.44.0",
-    "svelte-check": "^2.2.7",
-    "svelte-preprocess": "^4.9.8",
-    "tailwindcss": "^3.0.23",
-    "tslib": "^2.3.1",
-    "typescript": "^4.6.2",
-    "vite": "^4.0.0"
-  },
-  "engines": {
-    "node": "16.x",
-    "npm": "8.x"
-  }
+	"name": "mac-filename-kr",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"lint": "prettier --plugin-search-dir . --check . && eslint .",
+		"format": "prettier --plugin-search-dir . --write ."
+	},
+	"devDependencies": {
+		"@sveltejs/vite-plugin-svelte": "^2.0.0",
+		"@tsconfig/svelte": "^3.0.0",
+		"@typescript-eslint/eslint-plugin": "^5.14.0",
+		"@typescript-eslint/parser": "^5.14.0",
+		"autoprefixer": "^10.4.2",
+		"eslint": "^8.10.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-svelte3": "^4.0.0",
+		"postcss": "^8.4.8",
+		"prettier": "^2.5.1",
+		"prettier-plugin-svelte": "^2.8.1",
+		"prettier-plugin-tailwindcss": "^0.2.0",
+		"svelte": "^3.44.0",
+		"svelte-check": "^3.0.1",
+		"svelte-preprocess": "^5.0.0",
+		"tailwindcss": "^3.0.23",
+		"tslib": "^2.3.1",
+		"typescript": "^4.6.2",
+		"vite": "^4.0.0"
+	},
+	"engines": {
+		"node": "16.x",
+		"npm": "8.x"
+	}
 }
