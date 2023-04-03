@@ -79,7 +79,7 @@
 				transition:slide
 				class="text-2xl text-zinc-800 dark:text-zinc-100 md:text-3xl"
 			>
-				<span class="tracking-tighter">ㅍㅏㅇㅣㄹㅁㅕㅇ</span>
+				<span>ㅍㅏㅇㅣㄹㅁㅕㅇ</span>
 				<!-- SVG positioning from https://blog.prototypr.io/d44b3d7b26b4 -->
 				<span
 					class="relative top-0.5 inline-flex h-6 w-6 self-center md:h-7 md:w-7"
@@ -87,7 +87,7 @@
 					<!-- Emoji from https://github.com/sensadesign/sensaemoji -->
 					<BackhandIndexPointingRight />
 				</span>
-				<span class="tracking-tight">파일명</span>
+				<span>파일명</span>
 			</h1>
 		{/if}
 		<p
