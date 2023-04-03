@@ -1,4 +1,7 @@
-<!-- Image from https://img.shields.io/github/stars/hyunbinseo/mac-filename-kr?style=social -->
+<script lang="ts">
+	import { homepage } from '../../package.json';
+</script>
+
 <svg
 	xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -43,11 +46,7 @@
 		font-weight="700"
 		font-size="110px"
 	>
-		<a
-			target="_blank"
-			rel="noreferrer"
-			href="https://github.com/hyunbinseo/mac-filename-kr"
-		>
+		<a target="_blank" rel="noreferrer" href={homepage.replace('#readme', '')}>
 			<text
 				aria-hidden="true"
 				x="355"
@@ -73,7 +72,7 @@
 		<a
 			target="_blank"
 			rel="noreferrer"
-			href="https://github.com/hyunbinseo/mac-filename-kr/stargazers"
+			href={homepage.replace('#readme', '/stargazers')}
 		>
 			<rect width="22" x="60" height="20" fill="rgba(0,0,0,0)" />
 			<text

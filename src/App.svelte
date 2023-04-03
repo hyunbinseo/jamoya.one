@@ -1,11 +1,10 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition';
+	import { homepage } from '../package.json';
 	import Badge from './assets/Badge.svelte';
 	import BackhandIndexPointingRight from './assets/emoji/1F449.svelte';
 	import { downloadFiles, downloadItems } from './lib/functions';
 	import './lib/style.css';
-
-	const { VITE_GITHUB_URL } = import.meta.env;
 
 	let badgeIsLoaded = false;
 
@@ -55,12 +54,12 @@
 	{#if !filesAreDraggedOver}
 		<header transition:slide class="px-6">
 			<nav aria-label="Tabs" class="mx-auto max-w-xs">
-				<ul class="flex text-sm text-zinc-600 dark:text-zinc-300">
+				<ul class="flex gap-x-6 text-sm text-zinc-600 dark:text-zinc-300">
 					<li>자모야 모여라</li>
 					<li class="ml-auto">
 						<span class="border-b-2 pb-2">파일명</span>
 					</li>
-					<li class="ml-6">
+					<li>
 						<button
 							type="button"
 							class="hover:text-teal-600"
@@ -123,18 +122,17 @@
 			<nav class="mx-auto max-w-xs">
 				<ul class="flex text-sm text-zinc-600 dark:text-zinc-300">
 					<li>
-						<a href="{VITE_GITHUB_URL}#readme" class="hover:text-teal-600">
+						<a target="_blank" href={homepage} class="hover:text-teal-600">
 							소개
 						</a>
 					</li>
 					<li class="ml-3 border-l pl-3">
 						<a
 							target="_blank"
-							rel="noreferrer"
-							href="{VITE_GITHUB_URL}/discussions/1"
+							href="https://www.npmjs.com/package/jamoya-one"
 							class="hover:text-teal-600"
 						>
-							문의 및 제안
+							CLI
 						</a>
 					</li>
 					<li class="ml-auto">
@@ -143,8 +141,7 @@
 						{/if}
 						<a
 							target="_blank"
-							rel="noreferrer"
-							href="https://github.com/hyunbinseo/mac-filename-kr"
+							href={homepage.replace('#readme', '/stargazers')}
 							class:hidden={!badgeIsLoaded}
 						>
 							<img
@@ -152,7 +149,7 @@
 								height="20"
 								alt="GitHub Repo stars"
 								on:load={() => (badgeIsLoaded = true)}
-								src="https://img.shields.io/github/stars/hyunbinseo/mac-filename-kr?style=social"
+								src="https://img.shields.io/github/stars/hyunbinseo/jamoya.one?style=social"
 							/>
 						</a>
 					</li>
