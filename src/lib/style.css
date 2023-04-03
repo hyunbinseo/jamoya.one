@@ -1,7 +1,7 @@
-@import url('https://cdn.hyunbin.page/spoqa-han-sans-neo/subset.css');
+@import url('https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css');
 
 body {
-	font-family: 'Spoqa Han Sans Neo', sans-serif;
+	font-family: 'SUIT', sans-serif;
 }
 
 @tailwind base;
