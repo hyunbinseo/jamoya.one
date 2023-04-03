@@ -1,6 +1,8 @@
 {
-	"name": "mac-filename-kr",
-	"type": "module",
+	"name": "jamoya-one",
+	"description": "자모야 모여라 - 파일명 자소 분리 수정 도구 (NFD to NFC filename encoder)",
+	"version": "1.2.2",
+	"license": "MIT",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
@@ -12,6 +14,7 @@
 	"devDependencies": {
 		"@sveltejs/vite-plugin-svelte": "^2.0.0",
 		"@tsconfig/svelte": "^4.0.1",
+		"@types/node": "^18.15.11",
 		"@typescript-eslint/eslint-plugin": "^5.14.0",
 		"@typescript-eslint/parser": "^5.14.0",
 		"autoprefixer": "^10.4.2",
@@ -30,8 +33,35 @@
 		"typescript": "^5.0.3",
 		"vite": "^4.0.0"
 	},
+	"type": "module",
+	"main": "index.js",
+	"bin": {
+		"jamoya-one": "index.js"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"한글",
+		"파일명",
+		"인코딩",
+		"Korean",
+		"filename",
+		"encoding",
+		"NFD",
+		"NFC"
+	],
+	"author": "Hyunbin Seo",
 	"engines": {
-		"node": "16.x",
-		"npm": "8.x"
-	}
+		"node": ">=16",
+		"npm": ">=8"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/hyunbinseo/jamoya.one.git"
+	},
+	"bugs": {
+		"url": "https://github.com/hyunbinseo/jamoya.one/issues"
+	},
+	"homepage": "https://github.com/hyunbinseo/jamoya.one#readme"
 }
