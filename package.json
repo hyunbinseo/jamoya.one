@@ -1,7 +1,7 @@
 {
 	"name": "jamoya-one",
 	"description": "자모야 모여라 - 파일명 자소 분리 수정 도구 (NFD to NFC filename encoder)",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"license": "MIT",
 	"scripts": {
 		"dev": "vite",
