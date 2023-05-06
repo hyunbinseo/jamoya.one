@@ -3,7 +3,6 @@
     path {
       fill: rgb(15 23 42);
     }
-
     @media (prefers-color-scheme: dark) {
       path {
         fill: rgb(249 250 251);
