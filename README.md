@@ -31,6 +31,9 @@ npx jamoya-one@latest # 읽기 전용 - NFD로 인코딩 된 파일을 안내합
 npx jamoya-one@latest --write # 쓰기 - 파일명을 NFC로 인코딩합니다.
 ```
 
+> **Note**
+> macOS 13.3.x 버전에서는 파일 쓰기가 지원되지 않습니다. 읽기 전용으로 사용하시기 바랍니다. [GitHub Issue](https://github.com/hyunbinseo/jamoya.one/issues/6)
+
 다음 안내가 표시될 경우 `y`를 눌러 패키지를 설치합니다.
 
 ```

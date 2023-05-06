@@ -4,11 +4,12 @@ import { existsSync, readFileSync } from 'node:fs';
 import { readdir, rename } from 'node:fs/promises';
 import os from 'node:os';
 import { argv } from 'node:process';
-import about from './package.json' assert { type: 'json' };
+
+const write = argv[2] === '--write';
 
 const plistPath = '/System/Library/CoreServices/SystemVersion.plist';
 
-if (os.platform() === 'darwin' && existsSync(plistPath)) {
+if (write && os.platform() === 'darwin' && existsSync(plistPath)) {
 	const [version] =
 		readFileSync(plistPath, 'utf8').match(
 			/(?<=<key>ProductVersion<\/key>\s*<string>)[\d.]+(?=<\/string>)/
@@ -16,16 +17,15 @@ if (os.platform() === 'darwin' && existsSync(plistPath)) {
 
 	if (version && /^13\.3\./.test(version))
 		throw new Error(
-			`macOS 13.3.x 버전은 지원되지 않습니다. ${about.bugs.url}/6`
+			// https://github.com/hyunbinseo/jamoya.one/issues/6
+			'macOS 13.3.x 버전에서는 파일 쓰기가 지원되지 않습니다. 읽기 전용으로 사용하시기 바랍니다.'
 		);
 }
 
-const write = argv[2] === '--write';
-
-const ignore = ['desktop.ini'];
-
 try {
 	const items = await readdir('.', { withFileTypes: true });
+
+	const ignore = ['desktop.ini'];
 
 	const validFiles = items.filter(
 		(item) =>
