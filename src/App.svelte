@@ -38,10 +38,7 @@
 		input.value = '';
 	};
 
-	const handleTextInput = () => {
-		const string = window.prompt('자소가 분리된 문자열을 붙여 넣으세요.');
-		window.prompt('다음 값을 복사해 사용하세요.', string.normalize('NFC'));
-	};
+	const handleTextInput = `javascript:(()=>{let p=window.prompt("자소가 분리된 문자열을 붙여 넣으세요.");window.prompt("다음 값을 복사해 사용하세요.",p.normalize("NFC"))})();`;
 </script>
 
 <div
@@ -57,16 +54,10 @@
 				<ul class="flex gap-x-6 text-sm text-zinc-600 dark:text-zinc-300">
 					<li>자모야 모여라</li>
 					<li class="ml-auto">
-						<span class="border-b-2 pb-2">파일명</span>
+						<span class="border-b-2 pb-2">파일</span>
 					</li>
 					<li>
-						<button
-							type="button"
-							class="hover:text-teal-600"
-							on:click={handleTextInput}
-						>
-							텍스트
-						</button>
+						<a href={handleTextInput} class="hover:text-teal-600">텍스트</a>
 					</li>
 				</ul>
 			</nav>
@@ -109,7 +100,7 @@
 					class="text-teal-600 hover:text-teal-700 dark:hover:text-teal-500"
 					on:click={() => fileInput?.click()}
 				>
-					파일을 선택하거나
+					파일(들)을 선택하거나
 				</button>
 				이곳에 끌어다 놓으세요.
 			{:else}
