@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition';
-	import { homepage } from '../package.json';
+	import './app.css';
 	import Badge from './assets/Badge.svelte';
 	import BackhandIndexPointingRight from './assets/emoji/1F449.svelte';
-	import { downloadFiles, downloadItems } from './lib/functions';
-	import './lib/style.css';
+	import { downloadFiles, downloadItems } from './lib';
+
+	const { VITE_GITHUB } = import.meta.env;
 
 	let badgeIsLoaded = false;
 
@@ -111,13 +112,17 @@
 	{#if !filesAreDraggedOver}
 		<footer transition:slide class="px-6">
 			<nav class="mx-auto max-w-xs">
-				<ul class="flex text-sm text-zinc-600 dark:text-zinc-300">
+				<ul class="flex gap-x-6 text-sm text-zinc-600 dark:text-zinc-300">
 					<li>
-						<a target="_blank" href={homepage} class="hover:text-teal-600">
+						<a
+							target="_blank"
+							href="{VITE_GITHUB}#readme"
+							class="hover:text-teal-600"
+						>
 							소개
 						</a>
 					</li>
-					<li class="ml-3 border-l pl-3">
+					<li>
 						<a
 							target="_blank"
 							href="https://www.npmjs.com/package/jamoya-one"
@@ -132,7 +137,7 @@
 						{/if}
 						<a
 							target="_blank"
-							href={homepage.replace('#readme', '/stargazers')}
+							href="{VITE_GITHUB}/stargazers"
 							class:hidden={!badgeIsLoaded}
 						>
 							<img

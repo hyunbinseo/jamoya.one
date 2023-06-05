@@ -13,8 +13,8 @@ const htmlPlugin = (domain = ''): Plugin => {
 
 // https://vitejs.dev/config/
 export default ({ mode }: ConfigEnv): UserConfigExport => {
-	const { VITE_PAGE_DOMAIN } = loadEnv(mode, process.cwd());
-	const domain = mode === 'production' ? VITE_PAGE_DOMAIN : '';
+	const { VITE_DOMAIN } = loadEnv(mode, process.cwd());
+	const domain = mode === 'production' ? VITE_DOMAIN : '';
 
 	return defineConfig({
 		plugins: [svelte(), [htmlPlugin(domain)]],

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { homepage } from '../../package.json';
+	const { VITE_GITHUB } = import.meta.env;
 </script>
 
 <svg
@@ -46,7 +46,7 @@
 		font-weight="700"
 		font-size="110px"
 	>
-		<a target="_blank" rel="noreferrer" href={homepage.replace('#readme', '')}>
+		<a target="_blank" rel="noreferrer" href={VITE_GITHUB}>
 			<text
 				aria-hidden="true"
 				x="355"
@@ -69,11 +69,7 @@
 				rx="2"
 			/>
 		</a>
-		<a
-			target="_blank"
-			rel="noreferrer"
-			href={homepage.replace('#readme', '/stargazers')}
-		>
+		<a target="_blank" rel="noreferrer" href="{VITE_GITHUB}/stargazers">
 			<rect width="22" x="60" height="20" fill="rgba(0,0,0,0)" />
 			<text
 				aria-hidden="true"

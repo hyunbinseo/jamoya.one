@@ -24,18 +24,20 @@ export const downloadFiles = (files: FileList) => {
 	}
 };
 
-const isFile = (item: FileSystemEntry): item is FileSystemFileEntry =>
-	item.isFile;
-const isDirectory = (item: FileSystemEntry): item is FileSystemDirectoryEntry =>
-	item.isDirectory;
+const isFile = (entry: FileSystemEntry): entry is FileSystemFileEntry =>
+	entry.isFile;
 
-const scanAndDownloadFiles = (item: FileSystemEntry) => {
-	if (isFile(item)) {
+const isDirectory = (
+	entry: FileSystemEntry
+): entry is FileSystemDirectoryEntry => entry.isDirectory;
+
+const scanAndDownloadFiles = (entry: FileSystemEntry) => {
+	if (isFile(entry)) {
 		// Skip download of hidden files
-		if (item.name.charAt(0) !== '.') item.file((file) => downloadFile(file));
+		if (entry.name.charAt(0) !== '.') entry.file((file) => downloadFile(file));
 	}
-	if (isDirectory(item)) {
-		const directoryReader = item.createReader();
+	if (isDirectory(entry)) {
+		const directoryReader = entry.createReader();
 		directoryReader.readEntries((entries) => {
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			entries.forEach((entry) => scanAndDownloadFiles(entry));
