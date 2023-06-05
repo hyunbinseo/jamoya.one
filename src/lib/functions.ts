@@ -47,6 +47,7 @@ export const downloadItems = (items: DataTransferItemList) => {
 	downloadCounter = 0;
 	for (let i = 0; i < items.length; i += 1) {
 		const item = items[i];
+		if (item.kind !== 'file') continue;
 		if (item.webkitGetAsEntry) {
 			scanAndDownloadFiles(item.webkitGetAsEntry());
 		} else if (item.kind === 'file') {
