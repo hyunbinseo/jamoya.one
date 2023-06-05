@@ -10,15 +10,16 @@ const write = argv[2] === '--write';
 const plistPath = '/System/Library/CoreServices/SystemVersion.plist';
 
 if (write && os.platform() === 'darwin' && existsSync(plistPath)) {
-	const [version] =
-		readFileSync(plistPath, 'utf8').match(
-			/(?<=<key>ProductVersion<\/key>\s*<string>)[\d.]+(?=<\/string>)/
-		) || [];
+	const match = readFileSync(plistPath, 'utf8').match(
+		/(?<=<key>ProductVersion<\/key>\s*<string>)[\d.]+(?=<\/string>)/
+	);
 
-	if (version && /^13\.3\./.test(version))
+	const version = match ? Number(match[0]) : NaN;
+
+	if (!Number.isNaN(version) && version >= 13.3 && version < 14)
 		throw new Error(
 			// https://github.com/hyunbinseo/jamoya.one/issues/6
-			'macOS 13.3.x 버전에서는 파일 쓰기가 지원되지 않습니다. 읽기 전용으로 사용하시기 바랍니다.'
+			'macOS 13.3+ 버전에서는 파일 쓰기가 지원되지 않습니다. 읽기 전용으로 사용하시기 바랍니다.'
 		);
 }
 
