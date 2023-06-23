@@ -43,6 +43,8 @@
 </script>
 
 <div
+	role="region"
+	aria-label="파일 드롭 가능 영역"
 	class="fixed inset-0 flex select-none flex-col py-6 transition-colors sm:py-12 md:py-16"
 	class:bg-zinc-100={filesAreDraggedOver}
 	class:dark:bg-zinc-900={!filesAreDraggedOver}
@@ -157,6 +159,8 @@
 
 {#if filesAreDraggedOver}
 	<div
+		role="region"
+		aria-label="파일 드롭 영역"
 		class="fixed inset-0"
 		on:dragover|preventDefault|stopPropagation
 		on:dragleave|preventDefault|stopPropagation={handleDragLeave}
