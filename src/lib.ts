@@ -28,7 +28,7 @@ const isFile = (entry: FileSystemEntry): entry is FileSystemFileEntry =>
 	entry.isFile;
 
 const isDirectory = (
-	entry: FileSystemEntry
+	entry: FileSystemEntry,
 ): entry is FileSystemDirectoryEntry => entry.isDirectory;
 
 const scanAndDownloadFiles = (entry: FileSystemEntry) => {
