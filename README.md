@@ -36,4 +36,3 @@ Ok to proceed? (y)
 
 - `.안녕`과 같이 파일명이 온점으로 시작할 경우 처리되지 않습니다.
 - 현재 디렉터리 안의 파일(들)만 처리됩니다. 하위 경로는 제외됩니다.
-- macOS 13.3+ 버전에서는 읽기 전용 모드만 지원됩니다. [관련 이슈](https://github.com/hyunbinseo/jamoya.one/issues/6)

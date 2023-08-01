@@ -1,30 +1,35 @@
 #!/usr/bin/env node
 
-import { existsSync, readFileSync } from 'node:fs';
-import { readdir, rename } from 'node:fs/promises';
+import {
+	existsSync,
+	readdirSync,
+	renameSync,
+	unlinkSync,
+	writeFileSync,
+} from 'node:fs';
 import os from 'node:os';
 import { argv } from 'node:process';
 
-const write = argv[2] === '--write';
+const writeFiles = argv[2] === '--write';
 
-const plistPath = '/System/Library/CoreServices/SystemVersion.plist';
+const skipExistCheck = (() => {
+	if (os.platform() !== 'darwin') return false;
 
-if (write && os.platform() === 'darwin' && existsSync(plistPath)) {
-	const match = readFileSync(plistPath, 'utf8').match(
-		/(?<=<key>ProductVersion<\/key>\s*<string>)[\d.]+(?=<\/string>)/,
-	);
+	const nfdString = '자모야 모여라 이름 귀엽지 않나요.txt';
+	if (existsSync(nfdString)) return false;
 
-	const version = match ? Number(match[0]) : NaN;
+	writeFileSync(nfdString, '', { encoding: 'utf-8' });
 
-	if (!Number.isNaN(version) && version >= 13.3 && version < 14)
-		throw new Error(
-			// https://github.com/hyunbinseo/jamoya.one/issues/6
-			'macOS 13.3+ 버전에서는 파일 쓰기가 지원되지 않습니다. 읽기 전용으로 사용하시기 바랍니다.',
-		);
-}
+	// https://github.com/hyunbinseo/jamoya.one/issues/6
+	const exists = existsSync(nfdString.normalize());
+
+	unlinkSync(nfdString);
+
+	return exists ? true : false;
+})();
 
 try {
-	const items = await readdir('.', { withFileTypes: true });
+	const items = readdirSync('.', { withFileTypes: true });
 
 	const ignore = ['desktop.ini'];
 
@@ -50,17 +55,17 @@ try {
 	for (const { name: filename } of needsNormalization) {
 		const normalized = filename.normalize();
 
-		if (!write) {
+		if (!writeFiles) {
 			console.log(normalized);
 			continue;
 		}
 
-		if (existsSync(normalized))
+		if (!skipExistCheck && existsSync(normalized))
 			throw new Error(
 				`변환 실패: ${normalized} - 동일 이름의 파일이 존재합니다.`,
 			);
 
-		await rename(filename, normalized);
+		renameSync(filename, normalized);
 		console.log(`변환 완료: ${normalized}`);
 	}
 } catch (e) {
