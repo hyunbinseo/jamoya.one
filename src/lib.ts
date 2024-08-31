@@ -39,7 +39,6 @@ const scanAndDownloadFiles = (entry: FileSystemEntry) => {
 	if (isDirectory(entry)) {
 		const directoryReader = entry.createReader();
 		directoryReader.readEntries((entries) => {
-			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			entries.forEach((entry) => scanAndDownloadFiles(entry));
 		});
 	}

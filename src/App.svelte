@@ -70,7 +70,7 @@
 		{#if !filesAreDraggedOver}
 			<h1
 				transition:slide
-				class="text-2xl text-zinc-800 dark:text-zinc-100 md:text-3xl"
+				class="text-2xl text-zinc-800 md:text-3xl dark:text-zinc-100"
 			>
 				<span>ㅍㅏㅇㅣㄹㅁㅕㅇ</span>
 				<!-- SVG positioning from https://blog.prototypr.io/d44b3d7b26b4 -->
