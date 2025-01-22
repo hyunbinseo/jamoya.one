@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition';
-	import './app.css';
 	import Badge from './assets/Badge.svelte';
 	import BackhandIndexPointingRight from './assets/emoji/1F449.svelte';
 	import { downloadFiles, downloadItems } from './lib';
@@ -165,5 +164,5 @@
 		on:dragover|preventDefault|stopPropagation
 		on:dragleave|preventDefault|stopPropagation={handleDragLeave}
 		on:drop|preventDefault|stopPropagation={handleDrop}
-	/>
+	></div>
 {/if}
