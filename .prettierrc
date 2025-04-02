@@ -1,7 +1,9 @@
 {
-	"htmlWhitespaceSensitivity": "ignore",
-	"plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
-	"quoteProps": "consistent",
+	"useTabs": true,
 	"singleQuote": true,
-	"useTabs": true
+	"trailingComma": "all",
+	"printWidth": 100,
+	"plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
+	"overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }],
+	"tailwindStylesheet": "./src/app.css"
 }

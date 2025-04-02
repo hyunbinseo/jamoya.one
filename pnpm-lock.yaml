@@ -14,6 +14,9 @@ importers:
       '@eslint/js':
         specifier: ^9.23.0
         version: 9.23.0
+      '@sun-typeface/suit':
+        specifier: ^2.0.5
+        version: 2.0.5
       '@sveltejs/vite-plugin-svelte':
         specifier: ^5.0.3
         version: 5.0.3(svelte@5.25.6)(vite@6.2.4(@types/node@22.13.17)(jiti@1.21.7)(yaml@2.7.1))
@@ -440,6 +443,9 @@ packages:
     resolution: {integrity: sha512-jjqy3uWlecfB98Psxb5cD6Fny9Fupv9LrDSPTQZUROqjvZmcCqNu4UMl7qqhlUUGpwiAkotj6GYu4SZdcr/nLw==}
     cpu: [x64]
     os: [win32]
+
+  '@sun-typeface/suit@2.0.5':
+    resolution: {integrity: sha512-NJ0hxmQgDjDBFkocQ7rxx3wPahJbj3uATfXudN3oj6hh/rAedElhdYBbsSwz4qJsdjac6aW6cqK6R1bpsNGOaQ==}
 
   '@sveltejs/acorn-typescript@1.0.5':
     resolution: {integrity: sha512-IwQk4yfwLdibDlrXVE04jTZYlLnwsTT2PIOQQGNLWfjavGifnk1JD1LcZjZaBTRcxZu2FfPfNLOE04DSu9lqtQ==}
@@ -1709,6 +1715,8 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.38.0':
     optional: true
+
+  '@sun-typeface/suit@2.0.5': {}
 
   '@sveltejs/acorn-typescript@1.0.5(acorn@8.14.1)':
     dependencies:

@@ -1,12 +1,6 @@
 #!/usr/bin/env node
 
-import {
-	existsSync,
-	readdirSync,
-	renameSync,
-	unlinkSync,
-	writeFileSync,
-} from 'node:fs';
+import { existsSync, readdirSync, renameSync, unlinkSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import { argv } from 'node:process';
 
@@ -34,17 +28,12 @@ try {
 	const ignore = ['desktop.ini'];
 
 	const validFiles = items.filter(
-		(item) =>
-			!item.isDirectory() ||
-			!item.name.startsWith('.') ||
-			!ignore.includes(item.name),
+		(item) => !item.isDirectory() || !item.name.startsWith('.') || !ignore.includes(item.name),
 	);
 
 	if (!validFiles.length) throw new Error('디렉터리에 유효한 파일이 없습니다.');
 
-	const needsNormalization = validFiles.filter(
-		({ name }) => name !== name.normalize(),
-	);
+	const needsNormalization = validFiles.filter(({ name }) => name !== name.normalize());
 
 	console.log(
 		needsNormalization.length
@@ -61,9 +50,7 @@ try {
 		}
 
 		if (!skipExistCheck && existsSync(normalized))
-			throw new Error(
-				`변환 실패: ${normalized} - 동일 이름의 파일이 존재합니다.`,
-			);
+			throw new Error(`변환 실패: ${normalized} - 동일 이름의 파일이 존재합니다.`);
 
 		renameSync(filename, normalized);
 		console.log(`변환 완료: ${normalized}`);

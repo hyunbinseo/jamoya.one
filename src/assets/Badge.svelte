@@ -17,15 +17,7 @@
 		<stop offset="1" stop-opacity=".1" />
 	</linearGradient>
 	<g stroke="#d5d5d5">
-		<rect
-			stroke="none"
-			fill="#fcfcfc"
-			x="0.5"
-			y="0.5"
-			width="54"
-			height="19"
-			rx="2"
-		/>
+		<rect stroke="none" fill="#fcfcfc" x="0.5" y="0.5" width="54" height="19" rx="2" />
 		<rect x="60.5" y="0.5" width="21" height="19" rx="2" fill="#fafafa" />
 		<rect x="60" y="7.5" width="0.5" height="5" stroke="#fafafa" />
 		<path d="M60.5 6.5 l-3 3v1 l3 3" stroke="d5d5d5" fill="#fafafa" />
@@ -47,14 +39,7 @@
 		font-size="110px"
 	>
 		<a target="_blank" rel="noreferrer" href={VITE_GITHUB}>
-			<text
-				aria-hidden="true"
-				x="355"
-				y="150"
-				fill="#fff"
-				transform="scale(.1)"
-				textLength="270"
-			>
+			<text aria-hidden="true" x="355" y="150" fill="#fff" transform="scale(.1)" textLength="270">
 				Stars
 			</text>
 			<text x="355" y="140" transform="scale(.1)" textLength="270">Stars</text>
@@ -71,19 +56,10 @@
 		</a>
 		<a target="_blank" rel="noreferrer" href="{VITE_GITHUB}/stargazers">
 			<rect width="22" x="60" height="20" fill="rgba(0,0,0,0)" />
-			<text
-				aria-hidden="true"
-				x="705"
-				y="150"
-				fill="#fff"
-				transform="scale(.1)"
-				textLength="130"
-			>
+			<text aria-hidden="true" x="705" y="150" fill="#fff" transform="scale(.1)" textLength="130">
 				?
 			</text>
-			<text id="rlink" x="705" y="140" transform="scale(.1)" textLength="130">
-				?
-			</text>
+			<text id="rlink" x="705" y="140" transform="scale(.1)" textLength="130"> ? </text>
 		</a>
 	</g>
 </svg>

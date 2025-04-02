@@ -1,9 +1,8 @@
-@import url('https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css');
+@import '@sun-typeface/suit/fonts/variable/woff2/SUIT-Variable.css';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 body {
-	font-family: 'SUIT', sans-serif;
+	font-family: 'SUIT Variable', sans-serif;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

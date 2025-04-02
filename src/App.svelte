@@ -67,15 +67,10 @@
 	{/if}
 	<main class="flex flex-grow flex-col justify-center text-center">
 		{#if !filesAreDraggedOver}
-			<h1
-				transition:slide
-				class="text-2xl text-zinc-800 md:text-3xl dark:text-zinc-100"
-			>
+			<h1 transition:slide class="text-2xl text-zinc-800 md:text-3xl dark:text-zinc-100">
 				<span>ㅍㅏㅇㅣㄹㅁㅕㅇ</span>
 				<!-- SVG positioning from https://blog.prototypr.io/d44b3d7b26b4 -->
-				<span
-					class="relative top-0.5 inline-flex h-6 w-6 self-center md:h-7 md:w-7"
-				>
+				<span class="relative top-0.5 inline-flex h-6 w-6 self-center md:h-7 md:w-7">
 					<!-- Emoji from https://github.com/sensadesign/sensaemoji -->
 					<BackhandIndexPointingRight />
 				</span>
@@ -115,13 +110,7 @@
 			<nav class="mx-auto max-w-xs">
 				<ul class="flex gap-x-6 text-sm text-zinc-600 dark:text-zinc-300">
 					<li>
-						<a
-							target="_blank"
-							href="{VITE_GITHUB}#readme"
-							class="hover:text-teal-600"
-						>
-							소개
-						</a>
+						<a target="_blank" href="{VITE_GITHUB}#readme" class="hover:text-teal-600"> 소개 </a>
 					</li>
 					<li>
 						<a
@@ -136,11 +125,7 @@
 						{#if !badgeIsLoaded}
 							<Badge />
 						{/if}
-						<a
-							target="_blank"
-							href="{VITE_GITHUB}/stargazers"
-							class:hidden={!badgeIsLoaded}
-						>
+						<a target="_blank" href="{VITE_GITHUB}/stargazers" class:hidden={!badgeIsLoaded}>
 							<img
 								width="88"
 								height="20"
