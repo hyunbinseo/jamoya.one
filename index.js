@@ -2,9 +2,11 @@
 
 import { existsSync, readdirSync, renameSync, unlinkSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
+import { join } from 'node:path';
 import { argv } from 'node:process';
 
-const writeFiles = argv[2] === '--write';
+const writeFiles = argv.includes('--write') || argv.includes('-w');
+const recursive = argv.includes('--recursive') || argv.includes('-r');
 
 const skipExistCheck = (() => {
 	if (os.platform() !== 'darwin') return false;
@@ -22,38 +24,65 @@ const skipExistCheck = (() => {
 	return exists ? true : false;
 })();
 
-try {
-	const items = readdirSync('.', { withFileTypes: true });
+const ignore = ['desktop.ini'];
 
-	const ignore = ['desktop.ini'];
+function collectItems(dir = '.', items = []) {
+	const entries = readdirSync(dir, { withFileTypes: true });
 
-	const validFiles = items.filter(
-		(item) => !item.isDirectory() || !item.name.startsWith('.') || !ignore.includes(item.name),
-	);
-
-	if (!validFiles.length) throw new Error('디렉터리에 유효한 파일이 없습니다.');
-
-	const needsNormalization = validFiles.filter(({ name }) => name !== name.normalize());
-
-	console.log(
-		needsNormalization.length
-			? `총 ${needsNormalization.length}개의 파일명이 NFD로 인코딩 되어 있습니다.\n`
-			: 'NFD로 인코딩 된 파일명이 없습니다.',
-	);
-
-	for (const { name: filename } of needsNormalization) {
-		const normalized = filename.normalize();
-
-		if (!writeFiles) {
-			console.log(normalized);
+	for (const entry of entries) {
+		if (ignore.includes(entry.name) || entry.name.startsWith('.')) {
 			continue;
 		}
 
-		if (!skipExistCheck && existsSync(normalized))
-			throw new Error(`변환 실패: ${normalized} - 동일 이름의 파일이 존재합니다.`);
+		const fullPath = dir === '.' ? entry.name : join(dir, entry.name);
 
-		renameSync(filename, normalized);
-		console.log(`변환 완료: ${normalized}`);
+		if (entry.name !== entry.name.normalize()) {
+			items.push({
+				name: entry.name,
+				path: fullPath,
+				dir: dir,
+				isDirectory: entry.isDirectory(),
+			});
+		}
+
+		if (recursive && entry.isDirectory()) {
+			collectItems(fullPath, items);
+		}
+	}
+
+	return items;
+}
+
+try {
+	const needsNormalization = collectItems();
+
+	if (!needsNormalization.length) {
+		console.log('NFD로 인코딩 된 파일명 또는 디렉터리명이 없습니다.');
+		process.exit(0);
+	}
+
+	const itemType = recursive ? '항목' : '파일명';
+	console.log(
+		`총 ${needsNormalization.length}개의 ${itemType}이 NFD로 인코딩 되어 있습니다.\n`,
+	);
+
+	for (const { name: filename, path: fullPath, dir: itemDir, isDirectory } of needsNormalization) {
+		const normalized = filename.normalize();
+		const normalizedPath = itemDir === '.' ? normalized : join(itemDir, normalized);
+
+		if (!writeFiles) {
+			console.log(normalizedPath);
+			continue;
+		}
+
+		if (!skipExistCheck && existsSync(normalizedPath))
+			throw new Error(
+				`변환 실패: ${normalizedPath} - 동일 이름의 ${isDirectory ? '디렉터리' : '파일'}이 존재합니다.`,
+			);
+
+		renameSync(fullPath, normalizedPath);
+		const itemType = isDirectory ? '디렉터리' : '파일';
+		console.log(`변환 완료: ${normalizedPath} (${itemType})`);
 	}
 } catch (e) {
 	if (e instanceof Error) console.error(e);
