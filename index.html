@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="canonical" href="__domain" />
 		<title>자모야 모여라</title>
 		<meta property="og:title" content="자모야 모여라" />
 		<meta
@@ -31,6 +32,13 @@
 				}
 			}
 		</style>
+		<script>
+			const url = new URL(window.location.href);
+			if (url.origin === '__domain' && url.hash === '#redirected') {
+				history.replaceState(null, '', window.location.pathname);
+				window.alert("'자모야 모여라' 접속 주소가 변경되었습니다. 현재 주소를 북마크해 주세요.");
+			}
+		</script>
 	</head>
 
 	<body>

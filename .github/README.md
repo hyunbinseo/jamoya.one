@@ -2,7 +2,7 @@
 
 `ㅂㅗㄱㅗㅅㅓ.pdf`와 같이 자음과 모음이 분리된 파일명을 `보고서.pdf`로 수정해주는 [웹사이트]입니다.
 
-[웹사이트]: https://jamoya.one/
+[웹사이트]: https://jamo.hyunb.in/
 
 https://user-images.githubusercontent.com/47051820/160055676-7c5f326b-cd72-4322-8150-488fae25ee00.mp4
 
